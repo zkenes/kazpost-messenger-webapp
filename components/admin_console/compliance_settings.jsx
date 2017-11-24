@@ -55,7 +55,7 @@ export default class ComplianceSettings extends AdminSettings {
                     <div className='banner__content'>
                         <FormattedHTMLMessage
                             id='admin.compliance.noLicense'
-                            defaultMessage='<h4 class="banner__heading">Note:</h4><p>Compliance is an enterprise feature. Your current license does not support Compliance. Click <a href="http://mattermost.com"target="_blank">here</a> for information and pricing on enterprise licenses.</p>'
+                            defaultMessage='<h4 class="banner__heading">Note:</h4><p>Message Export is an enterprise feature. Your current license does not support it. Click <a href="http://mattermost.com"target="_blank">here</a> for information and pricing on enterprise licenses.</p>'
                         />
                     </div>
                 </div>
@@ -70,13 +70,13 @@ export default class ComplianceSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.compliance.enableTitle'
-                            defaultMessage='Enable Compliance Reporting:'
+                            defaultMessage='Enable Message Export:'
                         />
                     }
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.compliance.enableDesc'
-                            defaultMessage='When true, Mattermost allows compliance reporting from the <strong>Compliance and Auditing</strong> tab. See <a href="https://docs.mattermost.com/administration/compliance.html" target="_blank">documentation</a> to learn more.'
+                            defaultMessage='When true, Mattermost allows message exporting to a CSV file from <strong>Compliance and Auditing</strong>. See <a href="https://about.mattermost.com/default-message-export-documentation" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enable}
@@ -88,14 +88,14 @@ export default class ComplianceSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.compliance.directoryTitle'
-                            defaultMessage='Compliance Report Directory:'
+                            defaultMessage='Export Directory:'
                         />
                     }
                     placeholder={Utils.localizeMessage('admin.sql.maxOpenExample', 'Ex "10"')}
                     helpText={
                         <FormattedMessage
                             id='admin.compliance.directoryDescription'
-                            defaultMessage='Directory to which compliance reports are written. If blank, will be set to ./data/.'
+                            defaultMessage='Directory to which exports are written to. If blank, will be set to ./data/.'
                         />
                     }
                     value={this.state.directory}
@@ -107,13 +107,13 @@ export default class ComplianceSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.compliance.enableDailyTitle'
-                            defaultMessage='Enable Daily Report:'
+                            defaultMessage='Enable Daily Export:'
                         />
                     }
                     helpText={
                         <FormattedMessage
                             id='admin.compliance.enableDailyDesc'
-                            defaultMessage='When true, Mattermost will generate a daily compliance report.'
+                            defaultMessage='When true, Mattermost generates a daily message export to <strong>Compliance and Auditing</strong>.'
                         />
                     }
                     value={this.state.enableDaily}
