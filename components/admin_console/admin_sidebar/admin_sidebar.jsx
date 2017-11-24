@@ -165,7 +165,7 @@ export default class AdminSidebar extends React.Component {
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.compliance'
-                                defaultMessage='Compliance'
+                                defaultMessage='Message Export'
                             />
                         }
                     />
@@ -193,7 +193,7 @@ export default class AdminSidebar extends React.Component {
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.message_export'
-                                defaultMessage='Message Export (Beta)'
+                                defaultMessage='Compliance Export (Beta)'
                             />
                         }
                     />
@@ -244,7 +244,7 @@ export default class AdminSidebar extends React.Component {
                     title={
                         <FormattedMessage
                             id='admin.sidebar.audits'
-                            defaultMessage='Complaince and Auditing'
+                            defaultMessage='Compliance and Auditing'
                         />
                     }
                 />
