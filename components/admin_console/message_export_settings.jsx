@@ -40,7 +40,7 @@ export default class MessageExportSettings extends AdminSettings {
         return (
             <FormattedMessage
                 id='admin.messageExport.title'
-                defaultMessage='Message Export (Beta)'
+                defaultMessage='Compliance Export (Beta)'
             />
         );
     }
@@ -56,7 +56,7 @@ export default class MessageExportSettings extends AdminSettings {
                     <div className='banner__content'>
                         <FormattedHTMLMessage
                             id='admin.messageExport.description'
-                            defaultMessage='Message Export dumps all posts into a file that can be imported into third-party systems. The export task is scheduled to run once per day.'
+                            defaultMessage='Changing properties in this section will require a server restart before taking effect.'
                         />
                     </div>
                 </div>
@@ -66,13 +66,13 @@ export default class MessageExportSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.service.messageExportTitle'
-                            defaultMessage='Enable Message Export:'
+                            defaultMessage='Enable Compliance Export:'
                         />
                     }
                     helpText={
                         <FormattedMessage
                             id='admin.service.messageExportDesc'
-                            defaultMessage='When true, the system will export all messages that are sent once per day.'
+                            defaultMessage='When true, Mattermost generates a compliance export file containing messages posted in the past day. The export task is scheduled to run once per day. See <a href="https://about.mattermost.com/default-compliance-export-documentation" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enableMessageExport}
@@ -84,7 +84,7 @@ export default class MessageExportSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.messageExport.exportJobStartTime.title'
-                            defaultMessage='Message Export Time:'
+                            defaultMessage='Compliance Export Time:'
                         />
                     }
                     placeholder={Utils.localizeMessage('admin.messageExport.exportJobStartTime.example', 'E.g.: "02:00"')}
@@ -95,26 +95,6 @@ export default class MessageExportSettings extends AdminSettings {
                         />
                     }
                     value={this.state.exportJobStartTime}
-                    disabled={!this.state.enableMessageExport}
-                    onChange={this.handleChange}
-                />
-
-                <TextSetting
-                    id='exportFromTimestamp'
-                    label={
-                        <FormattedMessage
-                            id='admin.messageExport.exportFromTimestamp.title'
-                            defaultMessage='Creation Time of Oldest Post to Export:'
-                        />
-                    }
-                    placeholder={Utils.localizeMessage('admin.messageExport.exportFromTimestamp.example', 'E.g.: Tuesday October 24, 2017 @ 12pm UTC = 1508846400')}
-                    helpText={
-                        <FormattedMessage
-                            id='admin.messageExport.exportFromTimestamp.description'
-                            defaultMessage='Posts older than this will not be exported. Expressed as the number of seconds since the Unix Epoch (January 1, 1970).'
-                        />
-                    }
-                    value={this.state.exportFromTimestamp}
                     disabled={!this.state.enableMessageExport}
                     onChange={this.handleChange}
                 />
@@ -132,7 +112,7 @@ export default class MessageExportSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.messageExport.exportFormat.description'
-                            defaultMessage='The file format to write exported data in. Corresponds to the system that you want to import the data into.'
+                            defaultMessage='File format of the compliance export.'
                         />
                     }
                     value='actiance'
@@ -152,7 +132,7 @@ export default class MessageExportSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.messageExport.exportLocation.description'
-                            defaultMessage='The directory on your hard drive to write export files to. Mattermost must have write access to this directory. Do not include a filename.'
+                            defaultMessage='Directory to which compliance exports are written to. Mattermost must have write permissions to the directory, and the path that you set should not include a filename.'
                         />
                     }
                     value={this.state.exportLocation}
@@ -166,13 +146,13 @@ export default class MessageExportSettings extends AdminSettings {
                     createJobButtonText={
                         <FormattedMessage
                             id='admin.messageExport.createJob.title'
-                            defaultMessage='Run Message Export job now'
+                            defaultMessage='Run Compliance Export Job Now'
                         />
                     }
                     createJobHelpText={
                         <FormattedMessage
                             id='admin.messageExport.createJob.help'
-                            defaultMessage='Initiates a Message Export job immediately.'
+                            defaultMessage='Initiates a compliance export job immediately.'
                         />
                     }
                 />
