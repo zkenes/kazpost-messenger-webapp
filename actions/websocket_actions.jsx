@@ -3,7 +3,7 @@
 
 import $ from 'jquery';
 import {batchActions} from 'redux-batched-actions';
-import {ChannelTypes, EmojiTypes, PostTypes, TeamTypes, UserTypes} from 'mattermost-redux/action_types';
+import {ChannelTypes, EmojiTypes, PostTypes, TeamTypes, UserTypes, GeneralTypes} from 'mattermost-redux/action_types';
 import {getChannelAndMyMember, getChannelStats, viewChannel} from 'mattermost-redux/actions/channels';
 import {setServerVersion} from 'mattermost-redux/actions/general';
 import {getPosts, getProfilesAndStatusesForPosts, getCustomEmojiForReaction} from 'mattermost-redux/actions/posts';
@@ -260,6 +260,14 @@ function handleEvent(msg) {
 
     case SocketEvents.USER_ROLE_UPDATED:
         handleUserRoleUpdated(msg);
+        break;
+
+    case SocketEvents.CONFIG_CHANGED:
+        handleConfigChanged(msg);
+        break;
+
+    case SocketEvents.LICENSE_CHANGED:
+        handleLicenseChanged(msg);
         break;
 
     default:
@@ -607,4 +615,12 @@ function handleUserRoleUpdated(msg) {
             GlobalActions.redirectUserToDefaultTeam();
         }
     }
+}
+
+function handleConfigChanged(msg) {
+    store.dispatch({type: GeneralTypes.CLIENT_CONFIG_RECEIVED, data: msg.data.config});
+}
+
+function handleLicenseChanged(msg) {
+    store.dispatch({type: GeneralTypes.CLIENT_LICENSE_RECEIVED, data: msg.data.license});
 }
