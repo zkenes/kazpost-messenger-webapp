@@ -6,6 +6,7 @@ import 'bootstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
+import Mark from 'mark.js';
 
 import AnnouncementBar from 'components/announcement_bar';
 import {reloadIfServerVersionChanged} from 'actions/global_actions.jsx';
@@ -115,9 +116,31 @@ export default class AdminConsole extends React.Component {
         }).isRequired,
     }
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            filter: ""
+        }
+        this.markInstance = null;
+    }
+
     componentWillMount() {
         this.props.actions.getConfig();
         reloadIfServerVersionChanged();
+    }
+
+    componentDidUpdate() {
+        if (this.markInstance != null) {
+            this.markInstance.unmark()
+        }
+        this.markContext = document.querySelector(".sidebar-section, .admin-console > div:nth-child(2)")
+        this.markInstance = new Mark(this.markContext);
+        this.markInstance.mark(this.state.filter);
+    }
+
+    onFilterChange = (filter) => {
+        console.log(filter);
+        this.setState({filter: filter})
     }
 
     render() {
@@ -150,7 +173,7 @@ export default class AdminConsole extends React.Component {
             <div className='admin-console__wrapper'>
                 <AnnouncementBar/>
                 <div className='admin-console'>
-                    <AdminSidebar/>
+                    <AdminSidebar onFilterChange={this.onFilterChange} />
                     <Switch>
                         <SCRoute
                             path={`${this.props.match.url}/system_analytics`}

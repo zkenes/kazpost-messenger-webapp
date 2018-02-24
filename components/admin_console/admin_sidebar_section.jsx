@@ -13,6 +13,7 @@ export default class AdminSidebarSection extends React.Component {
             name: PropTypes.string.isRequired,
             title: PropTypes.node.isRequired,
             type: PropTypes.string,
+            hide: PropTypes.bool,
             parentLink: PropTypes.string,
             subsection: PropTypes.bool,
             children: PropTypes.node,
@@ -24,6 +25,7 @@ export default class AdminSidebarSection extends React.Component {
         return {
             parentLink: '',
             subsection: false,
+            hide: false,
             children: [],
         };
     }
@@ -33,6 +35,9 @@ export default class AdminSidebarSection extends React.Component {
     }
 
     render() {
+        if (this.props.hide) {
+            return null;
+        }
         const link = this.getLink();
 
         let clonedChildren = null;

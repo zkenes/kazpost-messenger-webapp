@@ -5,7 +5,9 @@ import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {intlShape} from 'react-intl';
 
+import {generateIndex} from 'utils/admin_console_index.jsx';
 import * as Utils from 'utils/utils.jsx';
 import AdminSidebarCategory from 'components/admin_console/admin_sidebar_category.jsx';
 import AdminSidebarHeader from 'components/admin_console/admin_sidebar_header.jsx';
@@ -24,6 +26,8 @@ export default class AdminSidebar extends React.Component {
         plugins: PropTypes.object,
         buildEnterpriseReady: PropTypes.bool,
         siteName: PropTypes.string,
+        onFilterChange: PropTypes.func.isRequired,
+        intl: intlShape.isRequired,
         actions: PropTypes.shape({
 
             /*
@@ -35,6 +39,14 @@ export default class AdminSidebar extends React.Component {
 
     static defaultProps = {
         plugins: {},
+    }
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            sections: null,
+        }
+        this.idx = null;
     }
 
     componentDidMount() {
@@ -68,6 +80,39 @@ export default class AdminSidebar extends React.Component {
         document.title = Utils.localizeMessage('sidebar_right_menu.console', 'System Console') + currentSiteName;
     }
 
+    onFilterChange = (e) => {
+        const filter = e.target.value;
+        if (filter === "") {
+            this.setState({sections: null})
+            this.props.onFilterChange(filter);
+            return;
+        }
+
+        if (this.idx === null) {
+            this.idx = generateIndex(this.props.intl);
+        }
+        let query = ""
+        for (let term of filter.split(" ")) {
+            query += term+"* "
+        }
+        const sections = this.idx.search(query).map((result) => result.ref);
+        this.setState({sections})
+        this.props.onFilterChange(filter);
+    }
+
+    mustHideSection = (...sections) => {
+        if (this.state.sections === null) {
+            return false;
+        }
+        for (let section of sections) {
+            if (this.state.sections.indexOf(section) !== -1) {
+                console.log(sections, false)
+                return false;
+            }
+        }
+        return true;
+    }
+
     render() {
         let oauthSettings = null;
         let ldapSettings = null;
@@ -87,6 +132,7 @@ export default class AdminSidebar extends React.Component {
             license = (
                 <AdminSidebarSection
                     name='license'
+                    hide={this.mustHideSection('license')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.license'
@@ -101,6 +147,7 @@ export default class AdminSidebar extends React.Component {
             if (this.props.license.LDAP === 'true') {
                 ldapSettings = (
                     <AdminSidebarSection
+                        hide={this.mustHideSection('ldap')}
                         name='ldap'
                         title={
                             <FormattedMessage
@@ -116,6 +163,7 @@ export default class AdminSidebar extends React.Component {
                 clusterSettings = (
                     <AdminSidebarSection
                         name='cluster'
+                        hide={this.mustHideSection('cluster')}
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.cluster'
@@ -130,6 +178,7 @@ export default class AdminSidebar extends React.Component {
                 metricsSettings = (
                     <AdminSidebarSection
                         name='metrics'
+                        hide={this.mustHideSection('metrics')}
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.metrics'
@@ -144,6 +193,7 @@ export default class AdminSidebar extends React.Component {
                 samlSettings = (
                     <AdminSidebarSection
                         name='saml'
+                        hide={this.mustHideSection('saml')}
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.saml'
@@ -158,6 +208,7 @@ export default class AdminSidebar extends React.Component {
                 complianceSettings = (
                     <AdminSidebarSection
                         name='compliance'
+                        hide={this.mustHideSection('compliance')}
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.compliance'
@@ -172,6 +223,7 @@ export default class AdminSidebar extends React.Component {
                 mfaSettings = (
                     <AdminSidebarSection
                         name='mfa'
+                        hide={this.mustHideSection('mfa')}
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.mfa'
@@ -186,6 +238,7 @@ export default class AdminSidebar extends React.Component {
                 messageExportSettings = (
                     <AdminSidebarSection
                         name='message_export'
+                        hide={this.mustHideSection('message_export')}
                         title={
                             <FormattedMessage
                                 id='admin.sidebar.compliance_export'
@@ -199,6 +252,7 @@ export default class AdminSidebar extends React.Component {
             oauthSettings = (
                 <AdminSidebarSection
                     name='oauth'
+                    hide={this.mustHideSection('oauth')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.oauth'
@@ -211,6 +265,7 @@ export default class AdminSidebar extends React.Component {
             policy = (
                 <AdminSidebarSection
                     name='policy'
+                    hide={this.mustHideSection('policy')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.policy'
@@ -223,6 +278,7 @@ export default class AdminSidebar extends React.Component {
             oauthSettings = (
                 <AdminSidebarSection
                     name='gitlab'
+                    hide={this.mustHideSection('gitlab')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.gitlab'
@@ -237,6 +293,7 @@ export default class AdminSidebar extends React.Component {
             audits = (
                 <AdminSidebarSection
                     name='audits'
+                    hide={this.mustHideSection('audits')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.audits'
@@ -253,6 +310,7 @@ export default class AdminSidebar extends React.Component {
             customBranding = (
                 <AdminSidebarSection
                     name='custom_brand'
+                    hide={this.mustHideSection('custom_brand')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.customBrand'
@@ -285,6 +343,7 @@ export default class AdminSidebar extends React.Component {
         const webrtcSettings = (
             <AdminSidebarSection
                 name='webrtc'
+                hide={this.mustHideSection('webrtc')}
                 title={
                     <FormattedMessage
                         id='admin.sidebar.webrtc'
@@ -299,6 +358,7 @@ export default class AdminSidebar extends React.Component {
             elasticSearchSettings = (
                 <AdminSidebarSection
                     name='elasticsearch'
+                    hide={this.mustHideSection('elasticsearch')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.elasticsearch'
@@ -314,6 +374,7 @@ export default class AdminSidebar extends React.Component {
             dataRetentionSettings = (
                 <AdminSidebarSection
                     name='data_retention'
+                    hide={this.mustHideSection('data_retention')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.data_retention'
@@ -330,6 +391,7 @@ export default class AdminSidebar extends React.Component {
             clientVersions = (
                 <AdminSidebarSection
                     name='client_versions'
+                    hide={this.mustHideSection('client_versions')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.client_versions'
@@ -345,6 +407,7 @@ export default class AdminSidebar extends React.Component {
                 <AdminSidebarSection
                     name='compliance'
                     type='text'
+                    hide={this.mustHideSection('data_retention', 'message_export')}
                     title={
                         <FormattedMessage
                             id='admin.sidebar.compliance'
@@ -380,6 +443,10 @@ export default class AdminSidebar extends React.Component {
                 <AdminSidebarHeader/>
                 <div className='nav-pills__container'>
                     <ul className='nav nav-pills nav-stacked'>
+                        <li>
+                            <input className='filter' type='text' onKeyUp={this.onFilterChange} placeholder='Filter' />
+                        </li>
+
                         <AdminSidebarCategory
                             parentLink='/admin_console'
                             icon='fa-bar-chart'
@@ -392,6 +459,7 @@ export default class AdminSidebar extends React.Component {
                         >
                             <AdminSidebarSection
                                 name='system_analytics'
+                                hide={this.mustHideSection('system_analytics')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.view_statistics'
@@ -401,6 +469,7 @@ export default class AdminSidebar extends React.Component {
                             />
                             <AdminSidebarSection
                                 name='team_analytics'
+                                hide={this.mustHideSection('team_analytics')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.statistics'
@@ -410,6 +479,7 @@ export default class AdminSidebar extends React.Component {
                             />
                             <AdminSidebarSection
                                 name='users'
+                                hide={this.mustHideSection('users')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.users'
@@ -419,6 +489,7 @@ export default class AdminSidebar extends React.Component {
                             />
                             <AdminSidebarSection
                                 name='logs'
+                                hide={this.mustHideSection('logs')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.logs'
@@ -441,6 +512,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='general'
                                 type='text'
+                                hide={this.mustHideSection('configuration', 'localization', 'users_and_teams', 'privacy', 'logging')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.general'
@@ -450,6 +522,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='configuration'
+                                    hide={this.mustHideSection('configuration')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.configuration'
@@ -459,6 +532,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='localization'
+                                    hide={this.mustHideSection('localization')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.localization'
@@ -468,6 +542,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='users_and_teams'
+                                    hide={this.mustHideSection('users_and_teams')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.usersAndTeams'
@@ -478,6 +553,7 @@ export default class AdminSidebar extends React.Component {
                                 {policy}
                                 <AdminSidebarSection
                                     name='privacy'
+                                    hide={this.mustHideSection('privacy')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.privacy'
@@ -488,6 +564,7 @@ export default class AdminSidebar extends React.Component {
                                 {complianceSettings}
                                 <AdminSidebarSection
                                     name='logging'
+                                    hide={this.mustHideSection('logging')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.logging'
@@ -498,6 +575,7 @@ export default class AdminSidebar extends React.Component {
                             </AdminSidebarSection>
                             <AdminSidebarSection
                                 name='authentication'
+                                hide={this.mustHideSection('authentication_email', 'oauth', 'ldap', 'saml', 'mfa')}
                                 type='text'
                                 title={
                                     <FormattedMessage
@@ -508,6 +586,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='authentication_email'
+                                    hide={this.mustHideSection('authentication_email')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.email'
@@ -522,6 +601,7 @@ export default class AdminSidebar extends React.Component {
                             </AdminSidebarSection>
                             <AdminSidebarSection
                                 name='security'
+                                hide={this.mustHideSection('sign_up', 'password', 'public_links', 'sessions', 'connections')}
                                 type='text'
                                 title={
                                     <FormattedMessage
@@ -532,6 +612,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='sign_up'
+                                    hide={this.mustHideSection('sign_up')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.signUp'
@@ -541,6 +622,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='password'
+                                    hide={this.mustHideSection('password')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.password'
@@ -550,6 +632,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='public_links'
+                                    hide={this.mustHideSection('public_links')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.publicLinks'
@@ -559,6 +642,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='sessions'
+                                    hide={this.mustHideSection('sessions')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.sessions'
@@ -568,6 +652,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='connections'
+                                    hide={this.mustHideSection('connections')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.connections'
@@ -580,6 +665,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='notifications'
                                 type='text'
+                                hide={this.mustHideSection('notifications_email', 'push')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.notifications'
@@ -589,6 +675,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='notifications_email'
+                                    hide={this.mustHideSection('notifications_email')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.email'
@@ -598,6 +685,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='push'
+                                    hide={this.mustHideSection('push')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.push'
@@ -609,6 +697,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='integrations'
                                 type='text'
+                                hide={this.mustHideSection('integrations.custom', 'integrations.external')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.integrations'
@@ -618,6 +707,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='custom'
+                                    hide={this.mustHideSection('integrations.custom')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.customIntegrations'
@@ -628,6 +718,7 @@ export default class AdminSidebar extends React.Component {
                                 {webrtcSettings}
                                 <AdminSidebarSection
                                     name='external'
+                                    hide={this.mustHideSection('integrations.external')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.external'
@@ -639,6 +730,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='plugins'
                                 type='text'
+                                hide={this.mustHideSection('plugins.configuration', 'plugins.management')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.plugins'
@@ -648,6 +740,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='configuration'
+                                    hide={this.mustHideSection('plugins.configuration')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.plugins.configuration'
@@ -657,6 +750,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='management'
+                                    hide={this.mustHideSection('plugins.management')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.plugins.management'
@@ -669,6 +763,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='files'
                                 type='text'
+                                hide={this.mustHideSection('storage')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.files'
@@ -679,6 +774,7 @@ export default class AdminSidebar extends React.Component {
                                 <AdminSidebarSection
                                     key='storage'
                                     name='storage'
+                                    hide={this.mustHideSection('storage')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.storage'
@@ -690,6 +786,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='customization'
                                 type='text'
+                                hide={this.mustHideSection('emoji', 'link_previews', 'custom_brand', 'legal_and_support', 'native_app_links')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.customization'
@@ -700,6 +797,7 @@ export default class AdminSidebar extends React.Component {
                                 {customBranding}
                                 <AdminSidebarSection
                                     name='emoji'
+                                    hide={this.mustHideSection('emoji')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.emoji'
@@ -710,6 +808,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='link_previews'
+                                    hide={this.mustHideSection('link_previews')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.linkPreviews'
@@ -720,6 +819,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='legal_and_support'
+                                    hide={this.mustHideSection('legal_and_support')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.legalAndSupport'
@@ -729,6 +829,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='native_app_links'
+                                    hide={this.mustHideSection('native_app_links')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.nativeAppLinks'
@@ -742,6 +843,7 @@ export default class AdminSidebar extends React.Component {
                             <AdminSidebarSection
                                 name='advanced'
                                 type='text'
+                                hide={this.mustHideSection('rate', 'database', 'developer', 'elasticsearch', 'cluster', 'metrics')}
                                 title={
                                     <FormattedMessage
                                         id='admin.sidebar.advanced'
@@ -751,6 +853,7 @@ export default class AdminSidebar extends React.Component {
                             >
                                 <AdminSidebarSection
                                     name='rate'
+                                    hide={this.mustHideSection('rate')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.rateLimiting'
@@ -760,6 +863,7 @@ export default class AdminSidebar extends React.Component {
                                 />
                                 <AdminSidebarSection
                                     name='database'
+                                    hide={this.mustHideSection('database')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.database'
@@ -770,6 +874,7 @@ export default class AdminSidebar extends React.Component {
                                 {elasticSearchSettings}
                                 <AdminSidebarSection
                                     name='developer'
+                                    hide={this.mustHideSection('developer')}
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.developer'

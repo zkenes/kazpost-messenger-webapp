@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getPlugins} from 'mattermost-redux/actions/admin';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
+import {injectIntl} from 'react-intl';
 
 import AdminSidebar from './admin_sidebar.jsx';
 
@@ -31,4 +32,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(AdminSidebar);
+export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(injectIntl(AdminSidebar));
