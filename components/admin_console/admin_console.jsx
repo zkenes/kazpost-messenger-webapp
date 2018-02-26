@@ -121,7 +121,8 @@ export default class AdminConsole extends React.Component {
         this.state = {
             filter: ""
         }
-        this.markInstance = null;
+        this.markInstance1 = null;
+        this.markInstance2 = null;
     }
 
     componentWillMount() {
@@ -130,16 +131,21 @@ export default class AdminConsole extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.markInstance != null) {
-            this.markInstance.unmark()
+        if (this.markInstance1 != null) {
+            this.markInstance1.unmark()
         }
-        this.markContext = document.querySelector(".sidebar-section, .admin-console > div:nth-child(2)")
-        this.markInstance = new Mark(this.markContext);
-        this.markInstance.mark(this.state.filter);
+        if (this.markInstance2 != null) {
+            this.markInstance2.unmark()
+        }
+        const markContext1 = document.querySelector(".sidebar-section")
+        const markContext2 = document.querySelector(".admin-console .wrapper--fixed")
+        this.markInstance1 = new Mark(markContext1);
+        this.markInstance1.mark(this.state.filter);
+        this.markInstance2 = new Mark(markContext2);
+        this.markInstance2.mark(this.state.filter);
     }
 
     onFilterChange = (filter) => {
-        console.log(filter);
         this.setState({filter: filter})
     }
 

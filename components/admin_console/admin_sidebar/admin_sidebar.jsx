@@ -12,6 +12,7 @@ import * as Utils from 'utils/utils.jsx';
 import AdminSidebarCategory from 'components/admin_console/admin_sidebar_category.jsx';
 import AdminSidebarHeader from 'components/admin_console/admin_sidebar_header.jsx';
 import AdminSidebarSection from 'components/admin_console/admin_sidebar_section.jsx';
+import SearchIcon from 'components/svg/search_icon';
 
 export default class AdminSidebar extends React.Component {
     static get contextTypes() {
@@ -93,7 +94,11 @@ export default class AdminSidebar extends React.Component {
         }
         let query = ""
         for (let term of filter.split(" ")) {
-            query += term+"* "
+            term.trim()
+            if (term != "") {
+                query += term+" "
+                query += term+"* "
+            }
         }
         const sections = this.idx.search(query).map((result) => result.ref);
         this.setState({sections})
@@ -106,7 +111,6 @@ export default class AdminSidebar extends React.Component {
         }
         for (let section of sections) {
             if (this.state.sections.indexOf(section) !== -1) {
-                console.log(sections, false)
                 return false;
             }
         }
