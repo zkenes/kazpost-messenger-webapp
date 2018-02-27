@@ -273,6 +273,7 @@ export const UserStatuses = {
     AWAY: 'away',
     ONLINE: 'online',
     DND: 'dnd',
+    FOCUS: 'focus',
 };
 
 export const UserStatusesWeight = {

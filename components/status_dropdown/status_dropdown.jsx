@@ -68,6 +68,11 @@ export default class StatusDropdown extends React.Component {
         this.setStatus(UserStatuses.DND);
     }
 
+    setFocus = (event) => {
+        event.preventDefault();
+        this.setStatus(UserStatuses.FOCUS);
+    }
+
     renderStatusOnlineAction = () => {
         return this.renderStatusAction(UserStatuses.ONLINE, this.setOnline);
     }
@@ -82,6 +87,10 @@ export default class StatusDropdown extends React.Component {
 
     renderStatusDndAction = () => {
         return this.renderStatusAction(UserStatuses.DND, this.setDnd, localizeMessage('status_dropdown.set_dnd.extra', 'Disables Desktop and Push Notifications'));
+    }
+
+    renderStatusFocus = () => {
+        return this.renderStatusAction(UserStatuses.FOCUS, this.setFocus);
     }
 
     renderProfilePicture = () => {
@@ -121,6 +130,7 @@ export default class StatusDropdown extends React.Component {
             this.renderStatusAwayAction(),
             this.renderStatusDndAction(),
             this.renderStatusOfflineAction(),
+            this.renderStatusFocus(),
         ];
         return (
             <Dropdown
