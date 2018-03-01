@@ -23,7 +23,7 @@ import Suggestion from './suggestion.jsx';
 
 const getState = store.getState;
 
-class SwitchChannelSuggestion extends Suggestion {
+export class SwitchChannelSuggestion extends Suggestion {
     render() {
         const {item, isSelection} = this.props;
         const channel = item.channel;
@@ -35,7 +35,12 @@ class SwitchChannelSuggestion extends Suggestion {
 
         let displayName = channel.display_name;
         let icon = null;
-        if (channel.type === Constants.OPEN_CHANNEL) {
+        if (item.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+            icon = (
+                <i className="category-icon fa fa-gear"></i>
+            );
+            displayName = item.text;
+        } else if (channel.type === Constants.OPEN_CHANNEL) {
             icon = (
                 <GlobeIcon className='icon icon__globe icon--body'/>
             );
@@ -57,6 +62,7 @@ class SwitchChannelSuggestion extends Suggestion {
             );
         }
 
+
         return (
             <div
                 onClick={this.handleClick}
@@ -72,6 +78,13 @@ class SwitchChannelSuggestion extends Suggestion {
 let prefix = '';
 
 function quickSwitchSorter(wrappedA, wrappedB) {
+    if (wrappedA.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+        return -1;
+    }
+    if (wrappedB.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+        return 1;
+    }
+
     if (wrappedA.type === Constants.MENTION_CHANNELS && wrappedB.type === Constants.MENTION_MORE_CHANNELS) {
         return -1;
     } else if (wrappedB.type === Constants.MENTION_CHANNELS && wrappedA.type === Constants.MENTION_MORE_CHANNELS) {
@@ -300,6 +313,54 @@ export default class SwitchChannelProvider extends Provider {
             completedChannels[user.id] = true;
             channels.push(wrappedChannel);
         }
+        //
+        // const index = generateIndex()
+        // results = index.search(prefix)
+        // const keys = this.idx.search(query).map((result) => result.ref);
+        const adminOptions = []
+        channels.push({
+            type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
+            text: "Ldap",
+            channel: {
+                display_name: "",
+                name: "Ldap",
+                id: "",
+                update_at: 0,
+                type: Constants.DM_CHANNEL,
+                last_picture_update: 0,
+            },
+            name: "Ldap",
+            deactivated: null,
+        });
+        channels.push({
+            type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
+            text: "Saml",
+            channel: {
+                display_name: "",
+                name: "Saml",
+                id: "",
+                update_at: 0,
+                type: Constants.DM_CHANNEL,
+                last_picture_update: 0,
+            },
+            name: "Saml",
+            deactivated: null,
+        });
+        channels.push({
+            type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
+            text: "Users",
+            channel: {
+                display_name: "",
+                name: "Users",
+                id: "",
+                update_at: 0,
+                type: Constants.DM_CHANNEL,
+                last_picture_update: 0,
+            },
+            name: "Users",
+            deactivated: null,
+        });
+
 
         const channelNames = channels.
             sort(quickSwitchSorter).
@@ -322,65 +383,5 @@ export default class SwitchChannelProvider extends Provider {
                 component: SwitchChannelSuggestion,
             });
         }, 0);
-    }
-}
-
-class AdminConsoleSearchSuggestion extends Suggestion {
-    render() {
-        const {item, isSelection} = this.props;
-
-        let className = 'mentions__name';
-        if (isSelection) {
-            className += ' suggestion--selected';
-        }
-
-        let displayName = "test";
-        icon = (
-            <i className="category-icon fa fa-gear"></i>
-        );
-
-        return (
-            <div
-                onClick={this.handleClick}
-                className={className}
-            >
-                {icon}
-                {displayName}
-            </div>
-        );
-    }
-}
-
-
-export default class AdminConsoleSearchProvider extends Provider {
-    handlePretextChanged(suggestionId, prefix) {
-        if (prefix) {
-            // Dispatch suggestions for local data
-            this.formatChannelsAndDispatch(channelPrefix, suggestionId, channels, users, true);
-
-            // Fetch data from the server and dispatch
-            this.fetchUsersAndChannels(channelPrefix, suggestionId);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    formatChannelsAndDispatch(prefix, suggestionId, menuOptions) {
-        const menuOptions = [];
-
-        const index = generateIndex()
-        results = index.search(prefix)
-        const keys = this.idx.search(query).map((result) => result.ref);
-
-        AppDispatcher.handleServerAction({
-            type: ActionTypes.SUGGESTION_RECEIVED_SUGGESTIONS,
-            id: suggestionId,
-            matchedPretext: prefix,
-            terms: keys,
-            items: keys,
-            component: AdminConsoleSearchSuggestion,
-        });
     }
 }

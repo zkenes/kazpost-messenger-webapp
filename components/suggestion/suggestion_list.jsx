@@ -123,6 +123,7 @@ export default class SuggestionList extends React.Component {
     }
 
     render() {
+        console.log(this.state.items);
         if (this.state.items.length === 0) {
             return null;
         }

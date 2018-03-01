@@ -16,6 +16,7 @@ import * as UserAgent from 'utils/user_agent.jsx';
 import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
 import SuggestionList from 'components/suggestion/suggestion_list.jsx';
 import SwitchChannelProvider from 'components/suggestion/switch_channel_provider.jsx';
+import AdminConsoleSearchProvider from 'components/suggestion/switch_channel_provider.jsx';
 import SwitchTeamProvider from 'components/suggestion/switch_team_provider.jsx';
 
 const getState = store.getState;
