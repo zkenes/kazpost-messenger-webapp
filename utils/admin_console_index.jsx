@@ -641,7 +641,7 @@ export const mappingSectionsToTexts = {
 };
 
 export function generateIndex(intl) {
-    var idx = lunr(function () {
+    var idx = lunr(function() {
         this.ref('ref');
         this.field('text');
         for (const key of Object.keys(mappingSectionsToTexts)) {
