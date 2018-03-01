@@ -37,9 +37,9 @@ export class SwitchChannelSuggestion extends Suggestion {
         let icon = null;
         if (item.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
             icon = (
-                <i className="category-icon fa fa-gear"></i>
+                <i className="category-icon fa fa-gear" style={{padding: '0 10px 0 0'}}></i>
             );
-            displayName = item.text;
+            displayName = item.name;
         } else if (channel.type === Constants.OPEN_CHANNEL) {
             icon = (
                 <GlobeIcon className='icon icon__globe icon--body'/>
@@ -78,11 +78,14 @@ export class SwitchChannelSuggestion extends Suggestion {
 let prefix = '';
 
 function quickSwitchSorter(wrappedA, wrappedB) {
+    if (wrappedA.type === Constants.SUGGESTION_SPOTLIGHT_TYPE && wrappedB.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+        return wrappedA.name > wrappedB.name;
+    }
     if (wrappedA.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
-        return -1;
+        return 1;
     }
     if (wrappedB.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
-        return 1;
+        return -1;
     }
 
     if (wrappedA.type === Constants.MENTION_CHANNELS && wrappedB.type === Constants.MENTION_MORE_CHANNELS) {
@@ -156,6 +159,11 @@ function makeChannelSearchFilter(channelPrefix) {
 }
 
 export default class SwitchChannelProvider extends Provider {
+    constructor(intl) {
+        super();
+        this.intl = intl;
+        this.index = generateIndex(intl);
+    }
     handlePretextChanged(suggestionId, channelPrefix) {
         if (channelPrefix) {
             prefix = channelPrefix;
@@ -313,54 +321,33 @@ export default class SwitchChannelProvider extends Provider {
             completedChannels[user.id] = true;
             channels.push(wrappedChannel);
         }
-        //
-        // const index = generateIndex()
-        // results = index.search(prefix)
-        // const keys = this.idx.search(query).map((result) => result.ref);
-        const adminOptions = []
-        channels.push({
-            type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
-            text: "Ldap",
-            channel: {
-                display_name: "",
-                name: "Ldap",
-                id: "",
-                update_at: 0,
-                type: Constants.DM_CHANNEL,
-                last_picture_update: 0,
-            },
-            name: "Ldap",
-            deactivated: null,
-        });
-        channels.push({
-            type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
-            text: "Saml",
-            channel: {
-                display_name: "",
-                name: "Saml",
-                id: "",
-                update_at: 0,
-                type: Constants.DM_CHANNEL,
-                last_picture_update: 0,
-            },
-            name: "Saml",
-            deactivated: null,
-        });
-        channels.push({
-            type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
-            text: "Users",
-            channel: {
-                display_name: "",
-                name: "Users",
-                id: "",
-                update_at: 0,
-                type: Constants.DM_CHANNEL,
-                last_picture_update: 0,
-            },
-            name: "Users",
-            deactivated: null,
-        });
 
+        // Suggestions for admin console pages
+        let query = ""
+        for (let term of prefix.split(" ")) {
+            term.trim()
+            if (term != "") {
+                query += term+" "
+                query += term+"* "
+            }
+        }
+        const keys = this.index.search(query).map((result) => result.ref);
+        keys.forEach((key) => {
+            const name = this.intl.formatMessage({id: 'admin.section.'+key});
+            channels.push({
+                type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
+                channel: {
+                    display_name: "",
+                    name: name,
+                    id: "",
+                    update_at: 0,
+                    type: Constants.DM_CHANNEL,
+                    last_picture_update: 0,
+                },
+                name: name,
+                deactivated: null,
+            });
+        })
 
         const channelNames = channels.
             sort(quickSwitchSorter).

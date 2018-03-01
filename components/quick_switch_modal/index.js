@@ -2,6 +2,7 @@
 // See License.txt for license information.
 
 import {connect} from 'react-redux';
+import {injectIntl} from 'react-intl';
 
 import QuickSwitchModal from './quick_switch_modal.jsx';
 
@@ -12,4 +13,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(mapStateToProps)(QuickSwitchModal);
+export default connect(mapStateToProps)(injectIntl(QuickSwitchModal));

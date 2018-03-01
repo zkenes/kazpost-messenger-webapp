@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, intlShape} from 'react-intl';
 import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 
 import {browserHistory} from 'utils/browser_history';
@@ -46,6 +46,7 @@ export default class QuickSwitchModal extends React.PureComponent {
          * Set to show team switcher
          */
         showTeamSwitcher: PropTypes.bool,
+        intl: intlShape.isRequired,
     }
 
     static defaultProps = {
@@ -67,7 +68,7 @@ export default class QuickSwitchModal extends React.PureComponent {
 
         this.enableChannelProvider = this.enableChannelProvider.bind(this);
         this.enableTeamProvider = this.enableTeamProvider.bind(this);
-        this.channelProviders = [new SwitchChannelProvider()];
+        this.channelProviders = [new SwitchChannelProvider(this.props.intl)];
         this.teamProviders = [new SwitchTeamProvider()];
 
         this.switchBox = null;
