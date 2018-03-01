@@ -9,6 +9,7 @@ import {getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 import {getCurrentUserId, searchProfiles, getUserIdsInChannels, getUser} from 'mattermost-redux/selectors/entities/users';
 
+import {browserHistory} from 'utils/browser_history';
 import GlobeIcon from 'components/svg/globe_icon';
 import LockIcon from 'components/svg/lock_icon';
 import AppDispatcher from 'dispatcher/app_dispatcher.jsx';
@@ -24,6 +25,18 @@ import Suggestion from './suggestion.jsx';
 const getState = store.getState;
 
 export class SwitchChannelSuggestion extends Suggestion {
+    handleClick = (e) => {
+        const {item, term, matchedPretext} = this.props;
+        e.preventDefault();
+        console.log(this.props)
+
+        if (item.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+            browserHistory.push('/admin_console/' + item.key);
+        } else {
+            this.props.onClick(term, matchedPretext);
+        }
+    }
+
     render() {
         const {item, isSelection} = this.props;
         const channel = item.channel;
@@ -347,6 +360,7 @@ export default class SwitchChannelProvider extends Provider {
                     last_picture_update: 0,
                 },
                 name,
+                key,
                 deactivated: null,
             });
         });
