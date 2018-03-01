@@ -43,8 +43,10 @@ export default class OnFocusOverlay extends React.Component {
 
             this.interval = setInterval(() => {
                 duration = moment.duration(duration - interval, 'milliseconds');
+                const seconds = duration.seconds() < 10 ? "0"+duration.seconds() : duration.seconds()
+                const minutes = duration.minutes() < 10 ? "0"+duration.minutes() : duration.minutes()
                 this.setState({
-                    countdown: duration.minutes() + ":" + duration.seconds()
+                    countdown: minutes + ":" + seconds
                 });
             }, interval);
         }
