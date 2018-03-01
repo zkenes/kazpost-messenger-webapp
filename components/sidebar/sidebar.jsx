@@ -6,6 +6,7 @@ import React from 'react';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import {FormattedMessage} from 'react-intl';
+import {Link} from 'react-router-dom';
 import {PropTypes} from 'prop-types';
 
 import {browserHistory} from 'utils/browser_history';
@@ -710,6 +711,9 @@ export default class Sidebar extends React.PureComponent {
                     className='nav-pills__container'
                     onScroll={this.onScroll}
                 >
+                    <div style={{}}>
+                        <Link to={`/${this.props.currentTeam.name}/home`}>{'Home'}</Link>
+                    </div>
                     {unreadChannelItems.length !== 0 && <ul className='nav nav-pills nav-stacked'>
                         <li>
                             <h4 id='favoriteChannel'>

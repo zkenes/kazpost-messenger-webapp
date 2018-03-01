@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
+import Home from 'components/home';
 import PermalinkView from 'components/permalink_view';
 import Navbar from 'components/navbar';
 import ChannelIdentifierRouter from 'components/channel_layout/channel_identifier_router';
@@ -45,6 +46,12 @@ export default class CenterChannel extends React.PureComponent {
                 </div>
                 <div className='row main'>
                     <Switch>
+                        <Route
+                            path={'/:team/home'}
+                            render={() => (
+                                <Home/>
+                            )}
+                        />
                         <Route
                             path={`${url}/pl/:postid`}
                             render={(props) => (
