@@ -28,6 +28,7 @@ import WebrtcSidebar from 'components/webrtc/webrtc_sidebar.jsx';
 import ModalController from 'components/modal_controller';
 import TeamSidebar from 'components/team_sidebar';
 import Sidebar from 'components/sidebar';
+import OnFocusOverlay from 'components/sidebar/header/on_focus_overlay';
 import * as Utils from 'utils/utils';
 import CenterChannel from 'components/channel_layout/center_channel';
 
@@ -44,6 +45,7 @@ export default class ChannelController extends React.Component {
     render() {
         return (
             <div className='channel-view'>
+                <OnFocusOverlay />
                 <AnnouncementBar/>
                 <WebrtcNotification/>
 
