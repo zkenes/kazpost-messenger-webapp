@@ -43,10 +43,10 @@ export default class AdminSidebar extends React.Component {
     }
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             sections: null,
-        }
+        };
         this.idx = null;
     }
 
@@ -83,8 +83,8 @@ export default class AdminSidebar extends React.Component {
 
     onFilterChange = (e) => {
         const filter = e.target.value;
-        if (filter === "") {
-            this.setState({sections: null})
+        if (filter === '') {
+            this.setState({sections: null});
             this.props.onFilterChange(filter);
             return;
         }
@@ -92,16 +92,16 @@ export default class AdminSidebar extends React.Component {
         if (this.idx === null) {
             this.idx = generateIndex(this.props.intl);
         }
-        let query = ""
-        for (let term of filter.split(" ")) {
-            term.trim()
-            if (term != "") {
-                query += term+" "
-                query += term+"* "
+        let query = '';
+        for (const term of filter.split(' ')) {
+            term.trim();
+            if (term != '') {
+                query += term + ' ';
+                query += term + '* ';
             }
         }
         const sections = this.idx.search(query).map((result) => result.ref);
-        this.setState({sections})
+        this.setState({sections});
         this.props.onFilterChange(filter);
     }
 
@@ -109,7 +109,7 @@ export default class AdminSidebar extends React.Component {
         if (this.state.sections === null) {
             return false;
         }
-        for (let section of sections) {
+        for (const section of sections) {
             if (this.state.sections.indexOf(section) !== -1) {
                 return false;
             }
@@ -448,7 +448,12 @@ export default class AdminSidebar extends React.Component {
                 <div className='nav-pills__container'>
                     <ul className='nav nav-pills nav-stacked'>
                         <li>
-                            <input className='filter' type='text' onKeyUp={this.onFilterChange} placeholder='Filter' />
+                            <input
+                                className='filter'
+                                type='text'
+                                onKeyUp={this.onFilterChange}
+                                placeholder='Filter'
+                            />
                         </li>
 
                         <AdminSidebarCategory

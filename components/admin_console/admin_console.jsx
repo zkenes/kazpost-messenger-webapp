@@ -117,10 +117,10 @@ export default class AdminConsole extends React.Component {
     }
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            filter: ""
-        }
+            filter: '',
+        };
         this.markInstance1 = null;
         this.markInstance2 = null;
     }
@@ -132,13 +132,13 @@ export default class AdminConsole extends React.Component {
 
     componentDidUpdate() {
         if (this.markInstance1 != null) {
-            this.markInstance1.unmark()
+            this.markInstance1.unmark();
         }
         if (this.markInstance2 != null) {
-            this.markInstance2.unmark()
+            this.markInstance2.unmark();
         }
-        const markContext1 = document.querySelector(".sidebar-section")
-        const markContext2 = document.querySelector(".admin-console .wrapper--fixed")
+        const markContext1 = document.querySelector('.sidebar-section');
+        const markContext2 = document.querySelector('.admin-console .wrapper--fixed');
         this.markInstance1 = new Mark(markContext1);
         this.markInstance1.mark(this.state.filter);
         this.markInstance2 = new Mark(markContext2);
@@ -146,7 +146,7 @@ export default class AdminConsole extends React.Component {
     }
 
     onFilterChange = (filter) => {
-        this.setState({filter: filter})
+        this.setState({filter});
     }
 
     render() {
@@ -179,7 +179,7 @@ export default class AdminConsole extends React.Component {
             <div className='admin-console__wrapper'>
                 <AnnouncementBar/>
                 <div className='admin-console'>
-                    <AdminSidebar onFilterChange={this.onFilterChange} />
+                    <AdminSidebar onFilterChange={this.onFilterChange}/>
                     <Switch>
                         <SCRoute
                             path={`${this.props.match.url}/system_analytics`}

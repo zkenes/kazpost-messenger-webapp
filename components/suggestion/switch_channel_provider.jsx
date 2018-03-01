@@ -37,7 +37,10 @@ export class SwitchChannelSuggestion extends Suggestion {
         let icon = null;
         if (item.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
             icon = (
-                <i className="category-icon fa fa-gear" style={{padding: '0 10px 0 0'}}></i>
+                <i
+                    className='category-icon fa fa-gear'
+                    style={{padding: '0 10px 0 0'}}
+                />
             );
             displayName = item.name;
         } else if (channel.type === Constants.OPEN_CHANNEL) {
@@ -61,7 +64,6 @@ export class SwitchChannelSuggestion extends Suggestion {
                 </div>
             );
         }
-
 
         return (
             <div
@@ -323,31 +325,31 @@ export default class SwitchChannelProvider extends Provider {
         }
 
         // Suggestions for admin console pages
-        let query = ""
-        for (let term of prefix.split(" ")) {
-            term.trim()
-            if (term != "") {
-                query += term+" "
-                query += term+"* "
+        let query = '';
+        for (const term of prefix.split(' ')) {
+            term.trim();
+            if (term != '') {
+                query += term + ' ';
+                query += term + '* ';
             }
         }
         const keys = this.index.search(query).map((result) => result.ref);
         keys.forEach((key) => {
-            const name = this.intl.formatMessage({id: 'admin.section.'+key});
+            const name = this.intl.formatMessage({id: 'admin.section.' + key});
             channels.push({
                 type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
                 channel: {
-                    display_name: "",
-                    name: name,
-                    id: "",
+                    display_name: '',
+                    name,
+                    id: '',
                     update_at: 0,
                     type: Constants.DM_CHANNEL,
                     last_picture_update: 0,
                 },
-                name: name,
+                name,
                 deactivated: null,
             });
-        })
+        });
 
         const channelNames = channels.
             sort(quickSwitchSorter).
