@@ -98,7 +98,8 @@
 
         &.online--icon,
         &.away--icon,
-        &.dnd--icon {
+        &.dnd--icon,
+        &.focus--icon, {
             @include opacity(1);
         }
     }

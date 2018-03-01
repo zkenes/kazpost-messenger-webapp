@@ -590,6 +590,11 @@ export function applyTheme(theme) {
         changeCss('.app__body .status .away--icon', 'fill:' + theme.awayIndicator);
     }
 
+    if (theme.focusIndicator) {
+        changeCss('.app__body .status.status--focus', 'color:' + theme.focusIndicator);
+        changeCss('.app__body .status .focus--icon', 'fill:' + theme.focusIndicator);
+    }
+
     let dndIndicator;
     if (theme.dndIndicator) {
         dndIndicator = theme.dndIndicator;

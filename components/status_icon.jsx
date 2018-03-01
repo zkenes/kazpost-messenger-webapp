@@ -12,6 +12,8 @@ import StatusOfflineAvatarIcon from 'components/svg/status_offline_avatar_icon';
 import StatusOfflineIcon from 'components/svg/status_offline_icon';
 import StatusOnlineAvatarIcon from 'components/svg/status_online_avatar_icon';
 import StatusOnlineIcon from 'components/svg/status_online_icon';
+import StatusFocusAvatarIcon from 'components/svg/status_focus_avatar_icon';
+import StatusFocusIcon from 'components/svg/status_focus_icon';
 
 export default class StatusIcon extends React.PureComponent {
     static propTypes = {
@@ -41,6 +43,8 @@ export default class StatusIcon extends React.PureComponent {
                 IconComponent = StatusAwayAvatarIcon;
             } else if (status === 'dnd') {
                 IconComponent = StatusDndAvatarIcon;
+            } else if (status === 'focus') {
+                IconComponent = StatusFocusAvatarIcon;
             } else {
                 IconComponent = StatusOfflineAvatarIcon;
             }
@@ -50,6 +54,8 @@ export default class StatusIcon extends React.PureComponent {
             IconComponent = StatusAwayIcon;
         } else if (status === 'dnd') {
             IconComponent = StatusDndIcon;
+        } else if (status === 'focus') {
+            IconComponent = StatusFocusIcon;
         } else {
             IconComponent = StatusOfflineIcon;
         }
