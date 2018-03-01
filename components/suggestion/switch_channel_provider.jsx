@@ -323,3 +323,32 @@ export default class SwitchChannelProvider extends Provider {
         }, 0);
     }
 }
+
+export default class AdminConsoleSearchProvider extends Provider {
+    handlePretextChanged(suggestionId, prefix) {
+        if (prefix) {
+            // Dispatch suggestions for local data
+            this.formatChannelsAndDispatch(channelPrefix, suggestionId, channels, users, true);
+
+            // Fetch data from the server and dispatch
+            this.fetchUsersAndChannels(channelPrefix, suggestionId);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    formatChannelsAndDispatch(prefix, suggestionId, menuOptions) {
+        const menuOptions = [];
+
+        AppDispatcher.handleServerAction({
+            type: ActionTypes.SUGGESTION_RECEIVED_SUGGESTIONS,
+            id: suggestionId,
+            matchedPretext: channelPrefix,
+            terms: channelNames,
+            items: channels,
+            component: SwitchChannelSuggestion,
+        });
+    }
+}
