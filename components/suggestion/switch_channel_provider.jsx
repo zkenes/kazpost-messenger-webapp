@@ -16,6 +16,7 @@ import store from 'stores/redux_store.jsx';
 import {getChannelDisplayName, sortChannelsByDisplayName} from 'utils/channel_utils.jsx';
 import {ActionTypes, Constants} from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
+import {generateIndex} from 'utils/admin_console_index';
 
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
@@ -324,6 +325,33 @@ export default class SwitchChannelProvider extends Provider {
     }
 }
 
+class AdminConsoleSearchSuggestion extends Suggestion {
+    render() {
+        const {item, isSelection} = this.props;
+
+        let className = 'mentions__name';
+        if (isSelection) {
+            className += ' suggestion--selected';
+        }
+
+        let displayName = "test";
+        icon = (
+            <i className="category-icon fa fa-gear"></i>
+        );
+
+        return (
+            <div
+                onClick={this.handleClick}
+                className={className}
+            >
+                {icon}
+                {displayName}
+            </div>
+        );
+    }
+}
+
+
 export default class AdminConsoleSearchProvider extends Provider {
     handlePretextChanged(suggestionId, prefix) {
         if (prefix) {
@@ -342,13 +370,17 @@ export default class AdminConsoleSearchProvider extends Provider {
     formatChannelsAndDispatch(prefix, suggestionId, menuOptions) {
         const menuOptions = [];
 
+        const index = generateIndex()
+        results = index.search(prefix)
+        const keys = this.idx.search(query).map((result) => result.ref);
+
         AppDispatcher.handleServerAction({
             type: ActionTypes.SUGGESTION_RECEIVED_SUGGESTIONS,
             id: suggestionId,
-            matchedPretext: channelPrefix,
-            terms: channelNames,
-            items: channels,
-            component: SwitchChannelSuggestion,
+            matchedPretext: prefix,
+            terms: keys,
+            items: keys,
+            component: AdminConsoleSearchSuggestion,
         });
     }
 }
