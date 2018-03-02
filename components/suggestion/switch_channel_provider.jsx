@@ -19,6 +19,7 @@ import {ActionTypes, Constants} from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
 import * as AdminConsoleIndex from 'utils/admin_console_index';
 import * as UiActionsIndex from 'utils/ui_actions_index';
+import {renderShortcut} from 'components/shortcuts_modal.jsx';
 
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
@@ -49,7 +50,7 @@ export class SwitchChannelSuggestion extends Suggestion {
         const {item, isSelection} = this.props;
         const channel = item.channel;
 
-        let className = 'mentions__name';
+        let className = 'mentions__name spotlight-item';
         if (isSelection) {
             className += ' suggestion--selected';
         }
@@ -79,7 +80,11 @@ export class SwitchChannelSuggestion extends Suggestion {
                     />
                 );
             }
-            displayName = item.name;
+            if (item.name.indexOf('\t') !== -1) {
+                displayName = renderShortcut(item.name);
+            } else {
+                displayName = item.name;
+            }
         } else if (channel.type === Constants.OPEN_CHANNEL) {
             icon = (
                 <GlobeIcon className='icon icon__globe icon--body'/>
@@ -218,7 +223,14 @@ export default class SwitchChannelProvider extends Provider {
 
             // Dispatch suggestions for local data
             const channels = getChannelsInCurrentTeam(getState()).concat(getGroupChannels(getState()));
-            const users = Object.assign([], searchProfiles(getState(), channelPrefix, true));
+            let users;
+            if (channelPrefix[0] === "~") {
+                users = [];
+            } else if (channelPrefix[0] === "@") {
+                users = Object.assign([], searchProfiles(getState(), channelPrefix.substring(1), true));
+            } else {
+                users = Object.assign([], searchProfiles(getState(), channelPrefix, true));
+            }
             this.formatChannelsAndDispatch(channelPrefix, suggestionId, channels, users, true);
 
             // Fetch data from the server and dispatch
@@ -237,13 +249,27 @@ export default class SwitchChannelProvider extends Provider {
         }
 
         let usersAsync;
-        if (global.window.mm_config.RestrictDirectMessage === 'team') {
-            usersAsync = Client4.autocompleteUsers(channelPrefix, teamId, '');
+        if (channelPrefix[0] === "~" || channelPrefix[0] === "!") {
+        } else if (channelPrefix[0] === "@") {
+            if (global.window.mm_config.RestrictDirectMessage === 'team') {
+                usersAsync = Client4.autocompleteUsers(channelPrefix.substring(1), teamId, '');
+            } else {
+                usersAsync = Client4.autocompleteUsers(channelPrefix.substring(1), '', '');
+            }
         } else {
-            usersAsync = Client4.autocompleteUsers(channelPrefix, '', '');
+            if (global.window.mm_config.RestrictDirectMessage === 'team') {
+                usersAsync = Client4.autocompleteUsers(channelPrefix, teamId, '');
+            } else {
+                usersAsync = Client4.autocompleteUsers(channelPrefix, '', '');
+            }
         }
 
-        const channelsAsync = Client4.searchChannels(teamId, channelPrefix);
+        if (channelPrefix[0] === "~") {
+            const channelsAsync = Client4.searchChannels(teamId, channelPrefix.substring(1));
+        } else if (channelPrefix[0] === "@" || channelPrefix[0] === "!") {
+        } else {
+            const channelsAsync = Client4.searchChannels(teamId, channelPrefix);
+        }
 
         let usersFromServer = [];
         let channelsFromServer = [];
@@ -261,7 +287,14 @@ export default class SwitchChannelProvider extends Provider {
             return;
         }
 
-        const users = Object.assign([], searchProfiles(getState(), channelPrefix, true)).concat(usersFromServer.users);
+        let users;
+        if (channelPrefix[0] === "~" || channelPrefix[0] === "!") {
+            users = [];
+        } else if (channelPrefix[0] === "@") {
+            users = Object.assign([], searchProfiles(getState(), channelPrefix.substring(1), true)).concat(usersFromServer.users);
+        } else {
+            users = Object.assign([], searchProfiles(getState(), channelPrefix, true)).concat(usersFromServer.users);
+        }
         const channels = getChannelsInCurrentTeam(getState()).concat(getGroupChannels(getState())).concat(channelsFromServer);
         this.formatChannelsAndDispatch(channelPrefix, suggestionId, channels, users);
     }
@@ -271,17 +304,32 @@ export default class SwitchChannelProvider extends Provider {
 
         const members = getMyChannelMemberships(getState());
 
-        if (this.shouldCancelDispatch(channelPrefix)) {
-            return;
+        if (channelPrefix[0] === "~") {
+            if (this.shouldCancelDispatch(channelPrefix.substring(1))) {
+                return;
+            }
+        } else {
+            if (this.shouldCancelDispatch(channelPrefix)) {
+                return;
+            }
         }
 
         const currentId = getCurrentUserId(getState());
 
         const completedChannels = {};
 
-        const channelFilter = makeChannelSearchFilter(channelPrefix);
+        let channelFilter;
+        if (channelPrefix[0] === "~") {
+            channelFilter = makeChannelSearchFilter(channelPrefix.substring(1));
+        } else {
+            channelFilter = makeChannelSearchFilter(channelPrefix);
+        }
 
+        console.log(allChannels);
         for (const id of Object.keys(allChannels)) {
+            if (channelPrefix[0] === "@" || channelPrefix[0] === "!") {
+                continue
+            }
             const channel = allChannels[id];
 
             if (completedChannels[channel.id]) {
@@ -307,8 +355,14 @@ export default class SwitchChannelProvider extends Provider {
                     wrappedChannel.type = Constants.MENTION_CHANNELS;
                 } else {
                     wrappedChannel.type = Constants.MENTION_MORE_CHANNELS;
-                    if (skipNotInChannel || !newChannel.display_name.toLowerCase().startsWith(channelPrefix)) {
-                        continue;
+                    if (channelPrefix[0] === "~") {
+                        if (skipNotInChannel || !newChannel.display_name.toLowerCase().startsWith(channelPrefix.substring(1))) {
+                            continue;
+                        }
+                    } else {
+                        if (skipNotInChannel || !newChannel.display_name.toLowerCase().startsWith(channelPrefix)) {
+                            continue;
+                        }
                     }
                 }
 
@@ -370,51 +424,63 @@ export default class SwitchChannelProvider extends Provider {
         }
 
         // Suggestions for admin console pages
-        let query = '';
-        for (const term of prefix.split(' ')) {
-            term.trim();
-            if (term != '') {
-                query += term + ' ';
-                query += term + '* ';
+        if (channelPrefix[0] !== "~" && channelPrefix[0] !== "@") {
+            let query = '';
+            if (channelPrefix[0] === "!") {
+                for (const term of channelPrefix.substring(1).split(' ')) {
+                    term.trim();
+                    if (term != '') {
+                        query += term + ' ';
+                        query += term + '* ';
+                    }
+                }
+            } else {
+                for (const term of channelPrefix.split(' ')) {
+                    term.trim();
+                    if (term != '') {
+                        query += term + ' ';
+                        query += term + '* ';
+                    }
+                }
             }
-        }
-        this.admin_console_index.search(query).map((result) => {
-            const name = this.intl.formatMessage({id: 'admin.section.' + result.ref});
-            channels.push({
-                type: Constants.SUGGESTION_ADMIN_CONSOLE,
-                channel: {
-                    display_name: '',
+            this.admin_console_index.search(query).map((result) => {
+                const name = this.intl.formatMessage({id: 'admin.section.' + result.ref});
+                channels.push({
+                    type: Constants.SUGGESTION_ADMIN_CONSOLE,
+                    channel: {
+                        display_name: '',
+                        name,
+                        id: '',
+                        update_at: 0,
+                        type: Constants.DM_CHANNEL,
+                        last_picture_update: 0,
+                    },
                     name,
-                    id: '',
-                    update_at: 0,
-                    type: Constants.DM_CHANNEL,
-                    last_picture_update: 0,
-                },
-                name,
-                key: result.ref,
-                score: result.score,
-                deactivated: null,
+                    key: result.ref,
+                    score: result.score,
+                    deactivated: null,
+                });
             });
-        });
 
-        this.ui_actions_index.search(query).map((result) => {
-            const name = this.intl.formatMessage({id: UiActionsIndex.mappingSectionsToTexts[result.ref].text});
-            channels.push({
-                type: Constants.SUGGESTION_UI_ACTIONS,
-                channel: {
-                    display_name: '',
+            this.ui_actions_index.search(query).map((result) => {
+                const name = this.intl.formatMessage({id: UiActionsIndex.mappingSectionsToTexts[result.ref].text});
+                channels.push({
+                    type: Constants.SUGGESTION_UI_ACTIONS,
+                    channel: {
+                        display_name: '',
+                        name,
+                        id: '',
+                        update_at: 0,
+                        type: Constants.DM_CHANNEL,
+                        last_picture_update: 0,
+                    },
                     name,
-                    id: '',
-                    update_at: 0,
-                    type: Constants.DM_CHANNEL,
-                    last_picture_update: 0,
-                },
-                name,
-                key: result.ref,
-                score: result.score,
-                deactivated: null,
+                    key: result.ref,
+                    score: result.score,
+                    deactivated: null,
+                });
             });
-        });
+        }
 
         const channelNames = channels.
             sort(quickSwitchSorter).

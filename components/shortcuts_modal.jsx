@@ -380,7 +380,7 @@ class ShortcutsModal extends React.PureComponent {
     }
 }
 
-function renderShortcut(text) {
+export function renderShortcut(text) {
     if (!text) {
         return null;
     }
