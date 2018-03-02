@@ -3062,5 +3062,10 @@
   "webrtc.unmute_audio": "Unmute microphone",
   "webrtc.unpause_video": "Turn on camera",
   "webrtc.unsupported": "{username} client does not support video calls.",
-  "youtube_video.notFound": "Video not found"
+  "youtube_video.notFound": "Video not found",
+  "spotlight.core_team_handbook": "Core Team Handbook",
+  "spotlight.integration_guide": "Integration Guide",
+  "spotlight.user_guide": "User's Guide",
+  "spotlight.administrator_guide": "Administrator's Guide",
+  "spotlight.developer_guide": "Developer's Guide"
 }

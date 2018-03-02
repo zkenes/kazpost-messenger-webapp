@@ -34,7 +34,7 @@ export class SwitchChannelSuggestion extends Suggestion {
         if (item.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
             browserHistory.push(AdminConsoleIndex.mappingSectionsToTexts[item.key].url);
         } else if (item.type === Constants.SUGGESTION_UI_ACTIONS) {
-            selectedItem = UiActionsIndex.mappingSectionsToTexts[item.key]
+            const selectedItem = UiActionsIndex.mappingSectionsToTexts[item.key]
             if (selectedItem.action) {
                 store.dispatch(selectedItem.action)
             } else {
@@ -67,10 +67,17 @@ export class SwitchChannelSuggestion extends Suggestion {
             displayName = item.name;
         } else if (item.type === Constants.SUGGESTION_UI_ACTIONS) {
             const selectedItem = UiActionsIndex.mappingSectionsToTexts[item.key]
-            if (selectedItem.icon) {
+            if (selectedItem.icon && typeof selectedItem.icon !== 'string') {
                 const IconClass = selectedItem.icon
                 icon = (
                     <IconClass className='spotlight' />
+                );
+            } else if (selectedItem.icon && typeof selectedItem.icon === 'string') {
+                icon = (
+                    <i
+                        className={'category-icon fa '+selectedItem.icon}
+                        style={{padding: '0 10px 0 0'}}
+                    />
                 );
             } else {
                 icon = (
@@ -249,7 +256,7 @@ export default class SwitchChannelProvider extends Provider {
         }
 
         let usersAsync;
-        if (channelPrefix[0] === "~" || channelPrefix[0] === "!") {
+        if (channelPrefix[0] === "~" || channelPrefix[0] === ">") {
         } else if (channelPrefix[0] === "@") {
             if (global.window.mm_config.RestrictDirectMessage === 'team') {
                 usersAsync = Client4.autocompleteUsers(channelPrefix.substring(1), teamId, '');
@@ -264,11 +271,11 @@ export default class SwitchChannelProvider extends Provider {
             }
         }
 
+        let channelsAsync;
         if (channelPrefix[0] === "~") {
-            const channelsAsync = Client4.searchChannels(teamId, channelPrefix.substring(1));
-        } else if (channelPrefix[0] === "@" || channelPrefix[0] === "!") {
+            channelsAsync = Client4.searchChannels(teamId, channelPrefix.substring(1));
         } else {
-            const channelsAsync = Client4.searchChannels(teamId, channelPrefix);
+            channelsAsync = Client4.searchChannels(teamId, channelPrefix);
         }
 
         let usersFromServer = [];
@@ -288,7 +295,7 @@ export default class SwitchChannelProvider extends Provider {
         }
 
         let users;
-        if (channelPrefix[0] === "~" || channelPrefix[0] === "!") {
+        if (channelPrefix[0] === "~" || channelPrefix[0] === ">") {
             users = [];
         } else if (channelPrefix[0] === "@") {
             users = Object.assign([], searchProfiles(getState(), channelPrefix.substring(1), true)).concat(usersFromServer.users);
@@ -325,9 +332,8 @@ export default class SwitchChannelProvider extends Provider {
             channelFilter = makeChannelSearchFilter(channelPrefix);
         }
 
-        console.log(allChannels);
         for (const id of Object.keys(allChannels)) {
-            if (channelPrefix[0] === "@" || channelPrefix[0] === "!") {
+            if (channelPrefix[0] === "@" || channelPrefix[0] === ">") {
                 continue
             }
             const channel = allChannels[id];
@@ -426,7 +432,7 @@ export default class SwitchChannelProvider extends Provider {
         // Suggestions for admin console pages
         if (channelPrefix[0] !== "~" && channelPrefix[0] !== "@") {
             let query = '';
-            if (channelPrefix[0] === "!") {
+            if (channelPrefix[0] === ">") {
                 for (const term of channelPrefix.substring(1).split(' ')) {
                     term.trim();
                     if (term != '') {
