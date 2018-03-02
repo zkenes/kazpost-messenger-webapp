@@ -18,6 +18,7 @@ import SuggestionList from 'components/suggestion/suggestion_list.jsx';
 import SwitchChannelProvider from 'components/suggestion/switch_channel_provider.jsx';
 import AdminConsoleSearchProvider from 'components/suggestion/switch_channel_provider.jsx';
 import SwitchTeamProvider from 'components/suggestion/switch_team_provider.jsx';
+import {mappingSectionsToTexts} from 'utils/admin_console_index';
 
 const getState = store.getState;
 
@@ -142,6 +143,10 @@ export default class QuickSwitchModal extends React.PureComponent {
 
         if (!selected) {
             return;
+        }
+
+        if (selected.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
+            browserHistory.push(mappingSectionsToTexts[selected.key].url);
         }
 
         if (this.state.mode === CHANNEL_MODE) {

@@ -1118,7 +1118,7 @@ export const Constants = {
     CHANNEL_ID_LENGTH: 26,
     TRANSPARENT_PIXEL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
 
-    SUGGESTION_SPOTLIGHT_TYPE: 'suggestions.spotlight',
+    SUGGESTION_ADMIN_CONSOLE: 'suggestions.admin_console',
 };
 
 export default Constants;

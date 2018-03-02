@@ -17,7 +17,7 @@ import store from 'stores/redux_store.jsx';
 import {getChannelDisplayName, sortChannelsByDisplayName} from 'utils/channel_utils.jsx';
 import {ActionTypes, Constants} from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
-import {generateIndex} from 'utils/admin_console_index';
+import {generateIndex, mappingSectionsToTexts} from 'utils/admin_console_index';
 
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
@@ -28,10 +28,9 @@ export class SwitchChannelSuggestion extends Suggestion {
     handleClick = (e) => {
         const {item, term, matchedPretext} = this.props;
         e.preventDefault();
-        console.log(this.props)
 
-        if (item.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
-            browserHistory.push('/admin_console/' + item.key);
+        if (item.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
+            browserHistory.push(mappingSectionsToTexts[item.key].url);
         } else {
             this.props.onClick(term, matchedPretext);
         }
@@ -48,7 +47,7 @@ export class SwitchChannelSuggestion extends Suggestion {
 
         let displayName = channel.display_name;
         let icon = null;
-        if (item.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+        if (item.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
             icon = (
                 <i
                     className='category-icon fa fa-gear'
@@ -93,13 +92,13 @@ export class SwitchChannelSuggestion extends Suggestion {
 let prefix = '';
 
 function quickSwitchSorter(wrappedA, wrappedB) {
-    if (wrappedA.type === Constants.SUGGESTION_SPOTLIGHT_TYPE && wrappedB.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+    if (wrappedA.type === Constants.SUGGESTION_ADMIN_CONSOLE && wrappedB.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
         return wrappedA.name > wrappedB.name;
     }
-    if (wrappedA.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+    if (wrappedA.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
         return 1;
     }
-    if (wrappedB.type === Constants.SUGGESTION_SPOTLIGHT_TYPE) {
+    if (wrappedB.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
         return -1;
     }
 
@@ -346,11 +345,10 @@ export default class SwitchChannelProvider extends Provider {
                 query += term + '* ';
             }
         }
-        const keys = this.index.search(query).map((result) => result.ref);
-        keys.forEach((key) => {
-            const name = this.intl.formatMessage({id: 'admin.section.' + key});
+        this.index.search(query).map((result) => {
+            const name = this.intl.formatMessage({id: 'admin.section.' + result.ref});
             channels.push({
-                type: Constants.SUGGESTION_SPOTLIGHT_TYPE,
+                type: Constants.SUGGESTION_ADMIN_CONSOLE,
                 channel: {
                     display_name: '',
                     name,
@@ -360,7 +358,8 @@ export default class SwitchChannelProvider extends Provider {
                     last_picture_update: 0,
                 },
                 name,
-                key,
+                key: result.ref,
+                score: result.score,
                 deactivated: null,
             });
         });

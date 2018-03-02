@@ -1,14 +1,18 @@
 import lunr from 'lunr';
 
-const mappingSectionsToTexts = {
+export const mappingSectionsToTexts = {
     audits: {
+        url: '/admin_console/audits',
         text: [
+            'admin.section.audits',
             'admin.audits.title',
             'admin.audits.reload',
         ],
-    }
+    },
     authentication_email: {
+        url: '/admin_console/authentication/authentication_email',
         text: [
+            'admin.section.authentication_email',
             'admin.email.allowSignupTitle',
             'admin.email.allowSignupDescription',
             'admin.email.allowEmailSignInTitle',
@@ -18,7 +22,9 @@ const mappingSectionsToTexts = {
         ],
     },
     client_versions: {
+        url: '',
         text: [
+            'admin.section.client_versions',
             'admin.client_versions.androidLatestVersion',
             'admin.client_versions.androidLatestVersionHelp',
             'admin.client_versions.androidMinVersion',
@@ -34,7 +40,9 @@ const mappingSectionsToTexts = {
         ],
     },
     cluster: {
+        url: '/admin_console/advanced/cluster',
         text: [
+            'admin.section.cluster',
             'admin.cluster.loadedFrom',
             'admin.cluster.should_not_change',
             'admin.cluster.noteDescription',
@@ -56,7 +64,9 @@ const mappingSectionsToTexts = {
         ],
     },
     compliance: {
+        url: '/admin_console/general/compliance',
         text: [
+            'admin.section.compliance',
             'admin.compliance.noLicense',
             'admin.compliance.enableTitle',
             'admin.compliance.enableDesc',
@@ -67,7 +77,9 @@ const mappingSectionsToTexts = {
         ],
     },
     configuration: {
+        url: '/admin_console/general/configuration',
         text: [
+            'admin.section.configuration',
             'admin.general.configuration',
             'admin.reload.reloadDescription',
             'admin.reload.reloadDescription.featureName',
@@ -99,7 +111,9 @@ const mappingSectionsToTexts = {
         ],
     },
     connections: {
+        url: '/admin_console/security/connections',
         text: [
+            'admin.section.connections',
             'admin.security.connection',
             'admin.service.corsTitle',
             'admin.service.corsDescription',
@@ -108,7 +122,9 @@ const mappingSectionsToTexts = {
         ],
     },
     custom_brand: {
+        url: '/admin_console/customization/custom_brand',
         text: [
+            'admin.section.custom_brand',
             'admin.customization.customBrand',
             'admin.team.brandDescriptionTitle',
             'admin.team.brandDescriptionHelp',
@@ -121,7 +137,9 @@ const mappingSectionsToTexts = {
         ],
     },
     database: {
+        url: '/admin_console/advanced/database',
         text: [
+            'admin.section.database',
             'admin.database.title',
             'admin.recycle.recycleDescription',
             'admin.recycle.recycleDescription.featureName',
@@ -143,7 +161,9 @@ const mappingSectionsToTexts = {
         ],
     },
     data_retention: {
+        url: '/admin_console/compliance/data_retention',
         text: [
+            'admin.section.data_retention',
             'admin.data_retention.title',
             'admin.data_retention.messageRetentionDays.description',
             'admin.data_retention.fileRetentionDays.description',
@@ -160,7 +180,9 @@ const mappingSectionsToTexts = {
         ],
     },
     developer: {
+        url: '/admin_console/advanced/developer',
         text: [
+            'admin.section.developer',
             'admin.developer.title',
             'admin.service.testingTitle',
             'admin.service.testingDescription',
@@ -171,7 +193,9 @@ const mappingSectionsToTexts = {
         ],
     },
     elasticsearch: {
+        url: '/admin_console/advanced/elasticsearch',
         text: [
+            'admin.section.elasticsearch',
             'admin.elasticsearch.percentComplete',
             'admin.elasticsearch.title',
             'admin.elasticsearch.noteDescription',
@@ -200,11 +224,14 @@ const mappingSectionsToTexts = {
         ],
     },
     emoji: {
+        url: '/admin_console/customization/emoji',
         text: [
         ],
     },
     gitlab: {
+        url: '/admin_console/integrations/gitlab',
         text: [
+            'admin.section.gitlab',
             'admin.authentication.gitlab',
             'admin.gitlab.enableTitle',
             'admin.gitlab.enableDescription',
@@ -221,15 +248,19 @@ const mappingSectionsToTexts = {
         ],
     },
     'integrations.custom': {
+        url: '/admin_console/integrations/custom',
         text: [
         ],
     },
     'integrations.external': {
+        url: '/admin_console/integrations/external',
         text: [
         ],
     },
     ldap: {
+        url: '/admin_console/authentication/ldap',
         text: [
+            'admin.section.ldap',
             'admin.authentication.ldap',
             'admin.ldap.jobExtraInfo',
             'admin.ldap.enableTitle',
@@ -279,7 +310,9 @@ const mappingSectionsToTexts = {
         ],
     },
     legal_and_support: {
+        url: '/admin_console/customization/legal_and_support',
         text: [
+            'admin.section.legal_and_support',
             'admin.customization.support',
             'admin.support.termsTitle',
             'admin.support.termsDesc',
@@ -296,7 +329,9 @@ const mappingSectionsToTexts = {
         ],
     },
     license: {
+        url: '/admin_console/license',
         text: [
+            'admin.section.license',
             'admin.license.keyRemove',
             'admin.license.noFile',
             'admin.license.choose',
@@ -309,27 +344,34 @@ const mappingSectionsToTexts = {
         ],
     },
     link_previews: {
+        url: '/admin_console/customization/link_previews',
         text: [
         ],
     },
     localization: {
+        url: '/admin_console/general/localization',
         text: [
         ],
     },
     logging: {
+        url: '/admin_console/general/logging',
         text: [
         ],
     },
     logs: {
+        url: '/admin_console/logs',
         text: [
         ],
     },
     message_export: {
+        url: '/admin_console/compliance/message_export',
         text: [
         ],
     },
     metrics: {
+        url: '/admin_console/advanced/metrics',
         text: [
+            'admin.section.metrics',
             'admin.advance.metrics',
             'admin.metrics.enableTitle',
             'admin.metrics.enableDescription',
@@ -338,7 +380,9 @@ const mappingSectionsToTexts = {
         ],
     },
     mfa: {
+        url: '/admin_console/security/mfa',
         text: [
+            'admin.section.mfa',
             'admin.mfa.title',
             'admin.mfa.bannerDesc',
             'admin.service.mfaTitle',
@@ -348,15 +392,19 @@ const mappingSectionsToTexts = {
         ],
     },
     native_app_links: {
+        url: '/admin_console/customization/native_app_links',
         text: [
         ],
     },
     notifications_email: {
+        url: '/admin_console/notifications/enotifications_email',
         text: [
         ],
     },
     oauth: {
+        url: '/admin_console/security/oauth',
         text: [
+            'admin.section.oauth',
             'admin.authentication.oauth',
             'admin.google.clientIdTitle',
             'admin.google.clientIdDescription',
@@ -388,19 +436,24 @@ const mappingSectionsToTexts = {
         ],
     },
     password: {
+        url: '/admin_console/security/password',
         text: [
         ],
     },
     'plugins.configuration': {
+        url: '/admin_console/plugins/configuration',
         text: [
         ],
     },
     'plugins.management': {
+        url: '/admin_console/plugins/management',
         text: [
         ],
     },
     policy: {
+        url: '/admin_console/general/policy',
         text: [
+            'admin.section.policy',
             'admin.general.policy',
             'admin.general.policy.teamInviteTitle',
             'admin.general.policy.teamInviteDescription',
@@ -435,7 +488,9 @@ const mappingSectionsToTexts = {
         ],
     },
     privacy: {
+        url: '/admin_console/general/privacy',
         text: [
+            'admin.section.privacy',
             'admin.general.privacy',
             'admin.privacy.showEmailTitle',
             'admin.privacy.showEmailDescription',
@@ -444,7 +499,9 @@ const mappingSectionsToTexts = {
         ],
     },
     public_links: {
+        url: '/admin_console/security/public_links',
         text: [
+            'admin.section.public_links',
             'admin.security.public_links',
             'admin.image.shareTitle',
             'admin.image.shareDescription',
@@ -453,7 +510,9 @@ const mappingSectionsToTexts = {
         ],
     },
     push: {
+        url: '/admin_console/notifications/push',
         text: [
+            'admin.section.push',
             'admin.notifications.title',
             'admin.email.pushOffHelp',
             'admin.email.mhpnsHelp',
@@ -468,7 +527,9 @@ const mappingSectionsToTexts = {
         ],
     },
     rate: {
+        url: '/admin_console/advanced/rate',
         text: [
+            'admin.section.rate',
             'admin.rate.title',
             'admin.rate.noteDescription',
             'admin.rate.enableLimiterTitle',
@@ -488,7 +549,9 @@ const mappingSectionsToTexts = {
         ],
     },
     saml: {
+        url: '/admin_console/authentication/saml',
         text: [
+            'admin.section.saml',
             'admin.authentication.saml',
             'admin.saml.idpCertificateFileTitle',
             'admin.saml.idpCertificateFileRemoveDesc',
@@ -536,34 +599,42 @@ const mappingSectionsToTexts = {
         ],
     },
     sessions: {
+        url: '/admin_console/security/sessions',
         text: [
         ],
     },
     sign_up: {
+        url: '/admin_console/security/sign_up',
         text: [
         ],
     },
     storage: {
+        url: '/admin_console/files/storage',
         text: [
         ],
     },
     system_analytics: {
+        url: '/admin_console/system_analytics',
         text: [
         ],
     },
     team_analytics: {
+        url: '/admin_console/team_analytics',
         text: [
         ],
     },
     users: {
+        url: '/admin_console/users',
         text: [
         ],
     },
     users_and_teams: {
+        url: '/admin_console/general/users_and_teams',
         text: [
         ],
     },
     webrtc: {
+        url: '/admin_console/integrations/webrtc',
         text: [
         ],
     },
@@ -578,7 +649,7 @@ export function generateIndex(intl) {
             for (const str of mappingSectionsToTexts[key].text) {
                 text += ' ' + intl.formatMessage({id: str});
             }
-            this.add({ref: key, text});
+            this.add({ref: key, text, url: mappingSectionsToTexts[key].url});
         }
     });
     return idx;
