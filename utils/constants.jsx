@@ -1119,6 +1119,7 @@ export const Constants = {
     TRANSPARENT_PIXEL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
 
     SUGGESTION_ADMIN_CONSOLE: 'suggestions.admin_console',
+    SUGGESTION_UI_ACTIONS: 'suggestions.ui_actions',
 };
 
 export default Constants;

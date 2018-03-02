@@ -83,3 +83,11 @@ img {
         @include border-radius(100%);
     }
 }
+
+.spotlight {
+    padding: 0 10px 0 0;
+    svg {
+        width: 10px;
+        height: 10px;
+    }
+}

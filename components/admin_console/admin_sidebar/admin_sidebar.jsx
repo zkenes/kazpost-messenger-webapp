@@ -7,7 +7,8 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {intlShape} from 'react-intl';
 
-import {generateIndex} from 'utils/admin_console_index.jsx';
+import {generateIndex, mappingSectionsToTexts} from 'utils/admin_console_index.jsx';
+import {browserHistory} from 'utils/browser_history';
 import * as Utils from 'utils/utils.jsx';
 import AdminSidebarCategory from 'components/admin_console/admin_sidebar_category.jsx';
 import AdminSidebarHeader from 'components/admin_console/admin_sidebar_header.jsx';
@@ -103,6 +104,17 @@ export default class AdminSidebar extends React.Component {
         const sections = this.idx.search(query).map((result) => result.ref);
         this.setState({sections});
         this.props.onFilterChange(filter);
+
+        let validSection = false;
+        for (let section of sections) {
+            if (mappingSectionsToTexts[section].url === window.location.pathname) {
+                let validSection = true;
+                break;
+            }
+        }
+        if (!validSection && sections.length > 0) {
+            browserHistory.push(mappingSectionsToTexts[sections[0]].url);
+        }
     }
 
     mustHideSection = (...sections) => {

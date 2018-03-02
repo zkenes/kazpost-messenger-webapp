@@ -17,7 +17,8 @@ import store from 'stores/redux_store.jsx';
 import {getChannelDisplayName, sortChannelsByDisplayName} from 'utils/channel_utils.jsx';
 import {ActionTypes, Constants} from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
-import {generateIndex, mappingSectionsToTexts} from 'utils/admin_console_index';
+import * as AdminConsoleIndex from 'utils/admin_console_index';
+import * as UiActionsIndex from 'utils/ui_actions_index';
 
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
@@ -30,7 +31,15 @@ export class SwitchChannelSuggestion extends Suggestion {
         e.preventDefault();
 
         if (item.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
-            browserHistory.push(mappingSectionsToTexts[item.key].url);
+            browserHistory.push(AdminConsoleIndex.mappingSectionsToTexts[item.key].url);
+        } else if (item.type === Constants.SUGGESTION_UI_ACTIONS) {
+            selectedItem = UiActionsIndex.mappingSectionsToTexts[item.key]
+            if (selectedItem.action) {
+                store.dispatch(selectedItem.action)
+            } else {
+                selectedItem.func();
+            }
+            AppDispatcher.handleViewAction({type: ActionTypes.TOGGLE_QUICK_SWITCH_MODAL});
         } else {
             this.props.onClick(term, matchedPretext);
         }
@@ -54,6 +63,22 @@ export class SwitchChannelSuggestion extends Suggestion {
                     style={{padding: '0 10px 0 0'}}
                 />
             );
+            displayName = item.name;
+        } else if (item.type === Constants.SUGGESTION_UI_ACTIONS) {
+            const selectedItem = UiActionsIndex.mappingSectionsToTexts[item.key]
+            if (selectedItem.icon) {
+                const IconClass = selectedItem.icon
+                icon = (
+                    <IconClass className='spotlight' />
+                );
+            } else {
+                icon = (
+                    <i
+                        className='category-icon fa fa-exclamation'
+                        style={{padding: '0 10px 0 0'}}
+                    />
+                );
+            }
             displayName = item.name;
         } else if (channel.type === Constants.OPEN_CHANNEL) {
             icon = (
@@ -99,6 +124,13 @@ function quickSwitchSorter(wrappedA, wrappedB) {
         return 1;
     }
     if (wrappedB.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
+        return -1;
+    }
+
+    if (wrappedA.type === Constants.SUGGESTION_UI_ACTIONS) {
+        return 1;
+    }
+    if (wrappedB.type === Constants.SUGGESTION_UI_ACTIONS) {
         return -1;
     }
 
@@ -176,7 +208,8 @@ export default class SwitchChannelProvider extends Provider {
     constructor(intl) {
         super();
         this.intl = intl;
-        this.index = generateIndex(intl);
+        this.admin_console_index = AdminConsoleIndex.generateIndex(intl);
+        this.ui_actions_index = UiActionsIndex.generateIndex(intl);
     }
     handlePretextChanged(suggestionId, channelPrefix) {
         if (channelPrefix) {
@@ -345,10 +378,29 @@ export default class SwitchChannelProvider extends Provider {
                 query += term + '* ';
             }
         }
-        this.index.search(query).map((result) => {
+        this.admin_console_index.search(query).map((result) => {
             const name = this.intl.formatMessage({id: 'admin.section.' + result.ref});
             channels.push({
                 type: Constants.SUGGESTION_ADMIN_CONSOLE,
+                channel: {
+                    display_name: '',
+                    name,
+                    id: '',
+                    update_at: 0,
+                    type: Constants.DM_CHANNEL,
+                    last_picture_update: 0,
+                },
+                name,
+                key: result.ref,
+                score: result.score,
+                deactivated: null,
+            });
+        });
+
+        this.ui_actions_index.search(query).map((result) => {
+            const name = this.intl.formatMessage({id: UiActionsIndex.mappingSectionsToTexts[result.ref].text});
+            channels.push({
+                type: Constants.SUGGESTION_UI_ACTIONS,
                 channel: {
                     display_name: '',
                     name,

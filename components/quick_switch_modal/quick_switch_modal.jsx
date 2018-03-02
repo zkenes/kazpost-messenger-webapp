@@ -10,7 +10,7 @@ import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 import {browserHistory} from 'utils/browser_history';
 import {goToChannel, openDirectChannelToUser} from 'actions/channel_actions.jsx';
 import store from 'stores/redux_store.jsx';
-import Constants from 'utils/constants.jsx';
+import {ActionTypes, Constants} from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
 import * as UserAgent from 'utils/user_agent.jsx';
 import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
@@ -18,7 +18,9 @@ import SuggestionList from 'components/suggestion/suggestion_list.jsx';
 import SwitchChannelProvider from 'components/suggestion/switch_channel_provider.jsx';
 import AdminConsoleSearchProvider from 'components/suggestion/switch_channel_provider.jsx';
 import SwitchTeamProvider from 'components/suggestion/switch_team_provider.jsx';
-import {mappingSectionsToTexts} from 'utils/admin_console_index';
+import * as AdminConsoleIndex from 'utils/admin_console_index';
+import * as UiActionsIndex from 'utils/ui_actions_index';
+import AppDispatcher from 'dispatcher/app_dispatcher.jsx';
 
 const getState = store.getState;
 
@@ -146,7 +148,19 @@ export default class QuickSwitchModal extends React.PureComponent {
         }
 
         if (selected.type === Constants.SUGGESTION_ADMIN_CONSOLE) {
-            browserHistory.push(mappingSectionsToTexts[selected.key].url);
+            browserHistory.push(AdminConsoleIndex.mappingSectionsToTexts[selected.key].url);
+            return;
+        }
+
+        if (selected.type === Constants.SUGGESTION_UI_ACTIONS) {
+            const item = UiActionsIndex.mappingSectionsToTexts[selected.key]
+            if (item.action) {
+                store.dispatch(item.action);
+            } else {
+                item.func();
+            }
+            AppDispatcher.handleViewAction({type: ActionTypes.TOGGLE_QUICK_SWITCH_MODAL});
+            return;
         }
 
         if (this.state.mode === CHANNEL_MODE) {
