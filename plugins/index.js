@@ -8,6 +8,8 @@ import {Client4} from 'mattermost-redux/client';
 import store from 'stores/redux_store.jsx';
 import {ActionTypes} from 'utils/constants.jsx';
 import {getSiteURL} from 'utils/url.jsx';
+import * as PostUtils from 'utils/post_utils';
+import * as TextFormatting from 'utils/text_formatting.jsx';
 
 window.plugins = {};
 
@@ -17,6 +19,8 @@ window['react-dom'] = require('react-dom');
 window.redux = require('redux');
 window['react-redux'] = require('react-redux');
 window['react-bootstrap'] = require('react-bootstrap');
+window['post-utils'] = PostUtils;
+window['text-formatting'] = TextFormatting;
 
 export function registerComponents(id, components = {}, postTypes = {}) {
     const wrappedComponents = {};
