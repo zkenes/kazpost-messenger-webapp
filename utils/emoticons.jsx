@@ -24,7 +24,7 @@ export const emoticonPatterns = {
     thumbsdown: /(^|\s)(:-1:)(?=$|\s)/g, // :-1:
 };
 
-export const EMOJI_PATTERN = /(:([a-zA-Z0-9_-]+):)/g;
+export const EMOJI_PATTERN = /(?=^|\W)(:([a-zA-Z0-9_-]+):)(?=$|\W)/g;
 
 export function handleEmoticons(text, tokens) {
     let output = text;

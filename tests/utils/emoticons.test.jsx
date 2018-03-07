@@ -20,9 +20,9 @@ describe('Emoticons', () => {
                 toEqual('/$MM_EMOTICON0..$MM_EMOTICON1)');
         });
 
-        test('should replace emoticons separated by text', () => {
+        test('shouldn\'t replace emoticons separated by text', () => {
             expect(Emoticons.handleEmoticons('asdf:goat:asdf:dash:asdf', new Map())).
-                toEqual('asdf$MM_EMOTICON0asdf$MM_EMOTICON1asdf');
+                toEqual('asdf:goat:asdf:dash:asdf');
         });
 
         test('shouldn\'t replace invalid emoticons', () => {
