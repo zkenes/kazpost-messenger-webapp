@@ -3,6 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import {FormattedTime} from 'react-intl';
 import {Link} from 'react-router-dom';
 
 import TeamStore from 'stores/team_store.jsx';
@@ -47,16 +48,6 @@ export default class PostTime extends React.PureComponent {
 
     renderTimeTag() {
         const date = new Date(this.props.eventTime);
-        const militaryTime = this.props.useMilitaryTime;
-
-        const hour = militaryTime ? date.getHours() : (date.getHours() % 12 || 12);
-        let minute = date.getMinutes();
-        minute = minute >= 10 ? minute : ('0' + minute);
-        let time = '';
-
-        if (!militaryTime) {
-            time = (date.getHours() >= 12 ? ' PM' : ' AM');
-        }
 
         return (
             <time
@@ -64,7 +55,10 @@ export default class PostTime extends React.PureComponent {
                 dateTime={date.toISOString()}
                 title={date}
             >
-                {hour + ':' + minute + time}
+                <FormattedTime
+                    hour12={!this.props.useMilitaryTime}
+                    value={date}
+                />
             </time>
         );
     }
