@@ -1,4 +1,4 @@
-// Copyright (c) 2016-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2016-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import * as IntegrationActions from 'mattermost-redux/actions/integrations';
