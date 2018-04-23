@@ -1,4 +1,4 @@
-// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2015-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import $ from 'jquery';
@@ -111,7 +111,7 @@ class LicenseSettings extends React.Component {
 
         if (this.props.license.IsLicensed === 'true') {
             // Note: DO NOT LOCALISE THESE STRINGS. Legally we can not since the license is in English.
-            edition = 'Mattermost Enterprise Edition. Enterprise features on this server have been unlocked with a license key and a valid subscription.';
+            edition = 'Messenger Enterprise Edition. Enterprise features on this server have been unlocked with a license key and a valid subscription.';
             licenseType = (
                 <div>
                     <p>
@@ -124,7 +124,7 @@ class LicenseSettings extends React.Component {
                     {`Start date of license: ${startsAt}`}<br/>
                     {`Expiry date of license: ${expiresAt}`}<br/>
                     <br/>
-                    {'See also '}<a href='https://about.mattermost.com/enterprise-edition-terms/'>{'Enterprise Edition Terms of Service'}</a>{' and '}<a href='https://about.mattermost.com/privacy/'>{'Privacy Policy.'}</a>
+                    {'See also '}<a href='https://about.Messenger.com/enterprise-edition-terms/'>{'Enterprise Edition Terms of Service'}</a>{' and '}<a href='https://about.Messenger.com/privacy/'>{'Privacy Policy.'}</a>
                 </div>
             );
 
@@ -152,13 +152,13 @@ class LicenseSettings extends React.Component {
             // Note: DO NOT LOCALISE THESE STRINGS. Legally we can not since the license is in English.
             edition = (
                 <p>
-                    {'Mattermost Enterprise Edition. Unlock enterprise features in this software through the purchase of a subscription from '}
+                    {'Messenger Enterprise Edition. Unlock enterprise features in this software through the purchase of a subscription from '}
                     <a
                         target='_blank'
                         rel='noopener noreferrer'
-                        href='https://mattermost.com/'
+                        href='https://Messenger.com/'
                     >
-                        {'https://mattermost.com/'}
+                        {'https://Messenger.com/'}
                     </a>
                 </p>
             );

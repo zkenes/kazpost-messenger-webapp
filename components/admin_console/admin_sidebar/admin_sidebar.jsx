@@ -1,4 +1,4 @@
-// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2015-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import $ from 'jquery';
@@ -732,7 +732,7 @@ export default class AdminSidebar extends React.Component {
                                     title={
                                         <FormattedMessage
                                             id='admin.sidebar.nativeAppLinks'
-                                            defaultMessage='Mattermost App Links'
+                                            defaultMessage='Messenger App Links'
                                         />
 
                                     }

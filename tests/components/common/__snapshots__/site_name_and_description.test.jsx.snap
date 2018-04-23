@@ -3,7 +3,7 @@
 exports[`/components/common/SiteNameAndDescription should match snapshot, default 1`] = `
 <React.Fragment>
   <h1>
-    Mattermost
+    Messenger
   </h1>
   <h4
     className="color--light"

@@ -1,7 +1,7 @@
-// Copyright (c) 2018-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2018-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
-// Copyright (c) 2017 Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017 TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import {bindActionCreators} from 'redux';

@@ -1,4 +1,4 @@
-// Copyright (c) 2018-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2018-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import {getUser, getProfiles, getProfilesInTeam, getProfilesWithoutTeam, searchProfiles, searchProfilesInTeam} from 'mattermost-redux/selectors/entities/users';

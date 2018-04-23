@@ -52,7 +52,7 @@ export default class WebrtcSettings extends AdminSettings {
         return (
             <FormattedMessage
                 id='admin.integrations.webrtc'
-                defaultMessage='Mattermost WebRTC (Beta)'
+                defaultMessage='Messenger WebRTC (Beta)'
             />
         );
     }
@@ -65,13 +65,13 @@ export default class WebrtcSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.webrtc.enableTitle'
-                            defaultMessage='Enable Mattermost WebRTC: '
+                            defaultMessage='Enable Messenger WebRTC: '
                         />
                     }
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.webrtc.enableDescription'
-                            defaultMessage='When true, Mattermost allows making <strong>one-on-one</strong> video calls. WebRTC calls are available on Chrome, Firefox and Mattermost Desktop Apps.'
+                            defaultMessage='When true, Messenger allows making <strong>one-on-one</strong> video calls. WebRTC calls are available on Chrome, Firefox and Messenger Desktop Apps.'
                         />
                     }
                     value={this.state.enableWebrtc}
@@ -85,11 +85,11 @@ export default class WebrtcSettings extends AdminSettings {
                             defaultMessage='Gateway WebSocket URL:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.webrtc.gatewayWebsocketUrlExample', 'E.g.: "wss://webrtc.mattermost.com:8189"')}
+                    placeholder={Utils.localizeMessage('admin.webrtc.gatewayWebsocketUrlExample', 'E.g.: "wss://webrtc.Messenger.com:8189"')}
                     helpText={
                         <FormattedMessage
                             id='admin.webrtc.gatewayWebsocketUrlDescription'
-                            defaultMessage='Enter wss://<mattermost-webrtc-gateway-url>:<port>. Make sure you use WS or WSS in your URL depending on your server configuration.
+                            defaultMessage='Enter wss://<Messenger-webrtc-gateway-url>:<port>. Make sure you use WS or WSS in your URL depending on your server configuration.
                             This is the WebSocket used to signal and establish communication between the peers.'
                         />
                     }
@@ -105,11 +105,11 @@ export default class WebrtcSettings extends AdminSettings {
                             defaultMessage='Gateway Admin URL:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.webrtc.gatewayAdminUrlExample', 'E.g.: "https://webrtc.mattermost.com:7089/admin"')}
+                    placeholder={Utils.localizeMessage('admin.webrtc.gatewayAdminUrlExample', 'E.g.: "https://webrtc.Messenger.com:7089/admin"')}
                     helpText={
                         <FormattedMessage
                             id='admin.webrtc.gatewayAdminUrlDescription'
-                            defaultMessage='Enter https://<mattermost-webrtc-gateway-url>:<port>/admin. Make sure you use HTTP or HTTPS in your URL depending on your server configuration.
+                            defaultMessage='Enter https://<Messenger-webrtc-gateway-url>:<port>/admin. Make sure you use HTTP or HTTPS in your URL depending on your server configuration.
                             Mattermost WebRTC uses this URL to obtain valid tokens for each peer to establish the connection.'
                         />
                     }

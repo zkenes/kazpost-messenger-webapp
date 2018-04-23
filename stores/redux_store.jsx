@@ -1,4 +1,4 @@
-// Copyright (c) 2017 Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017 TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 // This is a temporary store while we are transitioning from Flux to Redux. This file exports

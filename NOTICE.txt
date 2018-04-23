@@ -1,10 +1,10 @@
-Mattermost Web App
+Messenger Web App
 © 2017-present Mattermost, Inc.  All Rights Reserved.  See LICENSE.txt for license information.
 
 NOTICES:
 --------
 
-This document includes a list of open source components used in Mattermost Web App, including those that have been modified.
+This document includes a list of open source components used in Messenger Web App, including those that have been modified.
 
 --------
 
@@ -1234,7 +1234,7 @@ This product contains a modified portion of `redux`, a predictable state contain
 
 * HOMEPAGE
   * https://github.com/reactjs/redux
-  
+
 LICENSE
 
 The MIT License (MIT)
@@ -1255,7 +1255,7 @@ This product contains a modified portion of `reselect`, a simple “selector” 
 
 * HOMEPAGE
   * https://github.com/reactjs/reselect
-  
+
 LICENSE
 
 The MIT License (MIT)
@@ -2029,7 +2029,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 ## react-contextmenu
 
-This project includes ContextMenu implemented in React with accessibility support, built by Vivek Kumar Bansal. 
+This project includes ContextMenu implemented in React with accessibility support, built by Vivek Kumar Bansal.
 
 * HOMEPAGE:
   * https://github.com/vkbansal/react-contextmenu
@@ -2050,7 +2050,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## url-search-params-polyfill
 
-This project is a polyfill library for javascript's URLSearchParams class. This library has implemented all features from MDN document, built by Jerry Bendy. 
+This project is a polyfill library for javascript's URLSearchParams class. This library has implemented all features from MDN document, built by Jerry Bendy.
 
 * HOMEPAGE:
   * https://github.com/jerrybendy/url-search-params-polyfill

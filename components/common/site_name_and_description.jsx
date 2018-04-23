@@ -1,4 +1,4 @@
-// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2015-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import PropTypes from 'prop-types';
@@ -14,7 +14,7 @@ export default class SiteNameAndDescription extends React.PureComponent {
 
     static defaultProps = {
         isLicensed: false,
-        siteName: 'Mattermost',
+        siteName: 'Messenger',
     };
 
     render() {

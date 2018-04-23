@@ -1,4 +1,4 @@
-// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2015-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import React from 'react';
@@ -47,7 +47,7 @@ class TeamImportTab extends React.Component {
         const {formatMessage} = this.props.intl;
         var uploadDocsLink = (
             <a
-                href='https://docs.mattermost.com/administration/migrating.html#migrating-from-slack'
+                href='https://docs.Messenger.com/administration/migrating.html#migrating-from-slack'
                 target='_blank'
                 rel='noopener noreferrer'
             >
@@ -85,7 +85,7 @@ class TeamImportTab extends React.Component {
                 <p>
                     <FormattedMessage
                         id='team_import_tab.importHelpLine1'
-                        defaultMessage="Slack import to Mattermost supports importing of messages in your Slack team's public channels."
+                        defaultMessage="Slack import to Messenger supports importing of messages in your Slack team's public channels."
                     />
                 </p>
                 <p>
@@ -144,7 +144,7 @@ class TeamImportTab extends React.Component {
                     />
                     <a
                         href={this.state.link}
-                        download='MattermostImportSummary.txt'
+                        download='MessengerImportSummary.txt'
                     >
                         <FormattedMessage
                             id='team_import_tab.summary'
@@ -164,7 +164,7 @@ class TeamImportTab extends React.Component {
                     />
                     <a
                         href={this.state.link}
-                        download='MattermostImportSummary.txt'
+                        download='MessengerImportSummary.txt'
                     >
                         <FormattedMessage
                             id='team_import_tab.summary'

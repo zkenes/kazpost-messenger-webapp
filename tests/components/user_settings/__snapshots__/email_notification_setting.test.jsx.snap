@@ -36,7 +36,7 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
   saving={false}
   sendEmailNotifications={true}
   serverError=""
-  siteName="Mattermost"
+  siteName="Messenger"
   updateSection={[MockFunction]}
 >
   <SettingItemMax
@@ -99,11 +99,11 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
               id="user.settings.notifications.emailInfo"
               values={
                 Object {
-                  "siteName": "Mattermost",
+                  "siteName": "Messenger",
                 }
               }
             />
-             
+
           </div>
         </div>,
       ]
@@ -201,15 +201,15 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
                   id="user.settings.notifications.emailInfo"
                   values={
                     Object {
-                      "siteName": "Mattermost",
+                      "siteName": "Messenger",
                     }
                   }
                 >
                   <span>
-                    Email notifications are sent for mentions and direct messages when you are offline or away from Mattermost for more than 5 minutes.
+                    Email notifications are sent for mentions and direct messages when you are offline or away from Messenger for more than 5 minutes.
                   </span>
                 </FormattedMessage>
-                 
+
               </div>
             </div>
           </li>
@@ -347,7 +347,7 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
   saving={false}
   sendEmailNotifications={true}
   serverError=""
-  siteName="Mattermost"
+  siteName="Messenger"
   updateSection={[MockFunction]}
 >
   <SettingItemMax
@@ -456,11 +456,11 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
               id="user.settings.notifications.emailInfo"
               values={
                 Object {
-                  "siteName": "Mattermost",
+                  "siteName": "Messenger",
                 }
               }
             />
-             
+
             <FormattedMessage
               defaultMessage="Notifications received over the time period selected are combined and sent in a single email."
               id="user.settings.notifications.emailBatchingInfo"
@@ -617,15 +617,15 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
                   id="user.settings.notifications.emailInfo"
                   values={
                     Object {
-                      "siteName": "Mattermost",
+                      "siteName": "Messenger",
                     }
                   }
                 >
                   <span>
-                    Email notifications are sent for mentions and direct messages when you are offline or away from Mattermost for more than 5 minutes.
+                    Email notifications are sent for mentions and direct messages when you are offline or away from Messenger for more than 5 minutes.
                   </span>
                 </FormattedMessage>
-                 
+
                 <FormattedMessage
                   defaultMessage="Notifications received over the time period selected are combined and sent in a single email."
                   id="user.settings.notifications.emailBatchingInfo"
@@ -769,11 +769,11 @@ exports[`components/user_settings/notifications/EmailNotificationSetting should 
             id="user.settings.notifications.emailInfo"
             values={
               Object {
-                "siteName": "Mattermost",
+                "siteName": "Messenger",
               }
             }
           />
-           
+
         </div>
       </div>,
     ]

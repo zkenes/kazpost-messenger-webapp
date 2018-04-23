@@ -28,7 +28,7 @@ exports[`components/MessageExportSettings should match snapshot, disabled, actia
           className="banner__content"
         >
           <FormattedHTMLMessage
-            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Mattermost CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
+            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Messenger CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
             id="admin.complianceExport.description"
             values={Object {}}
           />
@@ -45,7 +45,7 @@ exports[`components/MessageExportSettings should match snapshot, disabled, actia
         }
         helpText={
           <FormattedHTMLMessage
-            defaultMessage="When true, Mattermost will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.mattermost.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
+            defaultMessage="When true, Messenger will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.Messenger.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
             id="admin.service.complianceExportDesc"
             values={Object {}}
           />
@@ -200,7 +200,7 @@ exports[`components/MessageExportSettings should match snapshot, disabled, globa
           className="banner__content"
         >
           <FormattedHTMLMessage
-            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Mattermost CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
+            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Messenger CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
             id="admin.complianceExport.description"
             values={Object {}}
           />
@@ -217,7 +217,7 @@ exports[`components/MessageExportSettings should match snapshot, disabled, globa
         }
         helpText={
           <FormattedHTMLMessage
-            defaultMessage="When true, Mattermost will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.mattermost.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
+            defaultMessage="When true, Messenger will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.Messenger.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
             id="admin.service.complianceExportDesc"
             values={Object {}}
           />
@@ -398,9 +398,9 @@ exports[`components/MessageExportSettings should match snapshot, disabled, globa
           }
           maxLength={null}
           onChange={[Function]}
-          placeholder="E.g.: \\"globalrelay@mattermost.com\\""
+          placeholder="E.g.: \\"globalrelay@Messenger.com\\""
           type="input"
-          value="globalRelay@mattermost.com"
+          value="globalRelay@Messenger.com"
         />
       </SettingsGroup>
       <Connect(InjectIntl(JobTable))
@@ -479,7 +479,7 @@ exports[`components/MessageExportSettings should match snapshot, enabled, actian
           className="banner__content"
         >
           <FormattedHTMLMessage
-            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Mattermost CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
+            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Messenger CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
             id="admin.complianceExport.description"
             values={Object {}}
           />
@@ -496,7 +496,7 @@ exports[`components/MessageExportSettings should match snapshot, enabled, actian
         }
         helpText={
           <FormattedHTMLMessage
-            defaultMessage="When true, Mattermost will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.mattermost.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
+            defaultMessage="When true, Messenger will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.Messenger.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
             id="admin.service.complianceExportDesc"
             values={Object {}}
           />
@@ -651,7 +651,7 @@ exports[`components/MessageExportSettings should match snapshot, enabled, global
           className="banner__content"
         >
           <FormattedHTMLMessage
-            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Mattermost CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
+            defaultMessage="This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Messenger CSV format is scheduled for a future release, and will replace the existing <a href=\\\\\\"/admin_console/general/compliance\\\\\\">Compliance</a> feature."
             id="admin.complianceExport.description"
             values={Object {}}
           />
@@ -668,7 +668,7 @@ exports[`components/MessageExportSettings should match snapshot, enabled, global
         }
         helpText={
           <FormattedHTMLMessage
-            defaultMessage="When true, Mattermost will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.mattermost.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
+            defaultMessage="When true, Messenger will export all messages that were posted in the last 24 hours. The export task is scheduled to run once per day. See <a href=\\\\\\"https://about.Messenger.com/default-compliance-export-documentation\\\\\\" target=\\\\\\"_blank\\\\\\">the documentation</a> to learn more."
             id="admin.service.complianceExportDesc"
             values={Object {}}
           />
@@ -849,9 +849,9 @@ exports[`components/MessageExportSettings should match snapshot, enabled, global
           }
           maxLength={null}
           onChange={[Function]}
-          placeholder="E.g.: \\"globalrelay@mattermost.com\\""
+          placeholder="E.g.: \\"globalrelay@Messenger.com\\""
           type="input"
-          value="globalRelay@mattermost.com"
+          value="globalRelay@Messenger.com"
         />
       </SettingsGroup>
       <Connect(InjectIntl(JobTable))

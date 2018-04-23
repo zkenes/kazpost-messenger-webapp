@@ -1,4 +1,4 @@
-// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2015-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import React from 'react';
@@ -11,7 +11,7 @@ describe('/components/common/SiteNameAndDescription', () => {
     const baseProps = {
         customDescriptionText: '',
         isLicensed: false,
-        siteName: 'Mattermost',
+        siteName: 'TinkerTech',
     };
 
     test('should match snapshot, default', () => {

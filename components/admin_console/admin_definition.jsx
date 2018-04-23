@@ -1,4 +1,4 @@
-// Copyright (c) 2017-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import React from 'react';
@@ -141,9 +141,9 @@ export default {
                             label: 'admin.service.siteURL',
                             label_default: 'Site URL:',
                             help_text: 'admin.service.siteURLDescription',
-                            help_text_default: 'The URL that users will use to access Mattermost. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://mattermost.example.com:8065. This setting is required.',
+                            help_text_default: 'The URL that users will use to access Messenger. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://mattermost.example.com:8065. This setting is required.',
                             placeholder: 'admin.service.siteURLExample',
-                            placeholder_default: 'E.g.: "https://mattermost.example.com:1234"',
+                            placeholder_default: '',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_TEXT,
@@ -153,7 +153,7 @@ export default {
                             placeholder: 'admin.service.listenExample',
                             placeholder_default: 'E.g.: ":8065"',
                             help_text: 'admin.service.listenDescription',
-                            help_text_default: 'The address and port to which to bind and listen. Specifying ":8065" will bind to all network interfaces. Specifying "127.0.0.1:8065" will only bind to the network interface having that IP address. If you choose a port of a lower level (called "system ports" or "well-known ports", in the range of 0-1023), you must have permissions to bind to that port. On Linux you can use: "sudo setcap cap_net_bind_service=+ep ./bin/platform" to allow Mattermost to bind to well-known ports.',
+                            help_text_default: 'The address and port to which to bind and listen. Specifying ":8065" will bind to all network interfaces. Specifying "127.0.0.1:8065" will only bind to the network interface having that IP address. If you choose a port of a lower level (called "system ports" or "well-known ports", in the range of 0-1023), you must have permissions to bind to that port. On Linux you can use: "sudo setcap cap_net_bind_service=+ep ./bin/platform" to allow Messenger to bind to well-known ports.',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_BOOL,

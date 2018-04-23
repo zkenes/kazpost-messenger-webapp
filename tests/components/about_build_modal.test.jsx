@@ -1,4 +1,4 @@
-// Copyright (c) 2017-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import React from 'react';
@@ -43,7 +43,7 @@ describe('components/AboutBuildModal', () => {
         };
         license = {
             IsLicensed: 'true',
-            Company: 'Mattermost Inc',
+            Company: 'TinkerTech Inc',
         };
     });
 

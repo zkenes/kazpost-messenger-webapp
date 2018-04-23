@@ -1,0 +1,9 @@
+// Copyright (c) 2017-present Mattermost, Inc. All Rights Reserved.
+// See License.txt for license information.
+// @flow
+
+export default {
+    TEAM_TYPE_OPEN: 'O',
+    TEAM_TYPE_INVITE: 'I',
+};
+

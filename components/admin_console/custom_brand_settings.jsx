@@ -1,4 +1,4 @@
-// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2015-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import React from 'react';
@@ -135,7 +135,7 @@ export default class CustomBrandSettings extends AdminSettings {
                         />
                     }
                     maxLength={Constants.MAX_SITENAME_LENGTH}
-                    placeholder={Utils.localizeMessage('admin.team.siteNameExample', 'E.g.: "Mattermost"')}
+                    placeholder={Utils.localizeMessage('admin.team.siteNameExample', 'E.g.: "Messenger"')}
                     helpText={
                         <FormattedMessage
                             id='admin.team.siteNameDescription'
