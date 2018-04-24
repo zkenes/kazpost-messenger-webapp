@@ -1,7 +1,7 @@
 {
-    "name": "Messenger",
-    "short_name": "Messenger",
-    "description": "Messenger is an open source, self-hosted Slack-alternative",
+    "name": "Tink",
+    "short_name": "Tink",
+    "description": "Tink is an open source, self-hosted Slack-alternative",
     "icons": [{
         "src": "/static/images/favicon/android-chrome-192x192.png",
         "type": "image/png",

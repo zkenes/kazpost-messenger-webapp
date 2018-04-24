@@ -15,7 +15,7 @@ describe('/components/create_team', () => {
     const defaultProps = {
         currentChannel: {name: 'test-channel'},
         currentTeam: {name: 'test-team'},
-        siteName: 'Mattermost',
+        siteName: 'Tink',
         isLicensed: true,
         customBrand: true,
         enableCustomBrand: true,

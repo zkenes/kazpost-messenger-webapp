@@ -24,7 +24,7 @@ describe('components/user_settings/notifications/EmailNotificationSetting', () =
         saving: false,
         sendEmailNotifications: true,
         enableEmailBatching: false,
-        siteName: 'Mattermost',
+        siteName: 'Tink',
     };
 
     test('should match snapshot', () => {
