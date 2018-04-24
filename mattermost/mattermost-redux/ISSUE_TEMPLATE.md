@@ -6,7 +6,7 @@ Issue in one concise sentence.
 #### Environment Information
 
 - Webapp or React Native app: 
-- Mattermost Server Version:
+- Tink Server Version:
 
 #### Steps to reproduce
 How can we reproduce the issue?

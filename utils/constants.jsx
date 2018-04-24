@@ -630,7 +630,7 @@ export const Constants = {
     EMOJI_SIZE: 16,
     THEMES: {
         default: {
-            type: 'Mattermost',
+            type: 'Tink',
             sidebarBg: '#145dbf',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -684,7 +684,7 @@ export const Constants = {
             image: defaultThemeImage,
         },
         mattermostDark: {
-            type: 'Mattermost Dark',
+            type: 'Tink Dark',
             sidebarBg: '#1b2c3e',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -1089,8 +1089,8 @@ export const Constants = {
     EMOJI_PATH: '/static/emoji',
     RECENT_EMOJI_KEY: 'recentEmojis',
     DEFAULT_WEBHOOK_LOGO: logoWebhook,
-    MHPNS: 'https://push.mattermost.com',
-    MTPNS: 'http://push-test.mattermost.com',
+    MHPNS: 'https://push.tink.com',
+    MTPNS: 'http://push-test.tink.com',
     BOT_NAME: 'BOT',
     MAX_PREV_MSGS: 100,
     POST_COLLAPSE_TIMEOUT: 1000 * 60 * 5, // five minutes

@@ -1,4 +1,4 @@
-// Copyright (c) 2017-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 // @flow
 
@@ -30,7 +30,7 @@ export default {
     CATEGORY_THEME: 'theme',
     THEMES: {
         default: {
-            type: 'Mattermost',
+            type: 'Tink',
             sidebarBg: '#145dbf',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -82,7 +82,7 @@ export default {
             codeTheme: 'github',
         },
         mattermostDark: {
-            type: 'Mattermost Dark',
+            type: 'Tink Dark',
             sidebarBg: '#1b2c3e',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',

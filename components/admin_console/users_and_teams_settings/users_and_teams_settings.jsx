@@ -239,11 +239,11 @@ export default class UsersAndTeamsSettings extends AdminSettings {
                             defaultMessage='Restrict account creation to specified email domains:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.team.restrictExample', 'Ex "corp.mattermost.com, mattermost.org"')}
+                    placeholder={Utils.localizeMessage('admin.team.restrictExample', 'Ex "corp.tink.com, mattermost.org"')}
                     helpText={
                         <FormattedMessage
                             id='admin.team.restrictDescription'
-                            defaultMessage='Teams and user accounts can only be created from a specific domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.mattermost.com, mattermost.org").'
+                            defaultMessage='Teams and user accounts can only be created from a specific domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.tink.com, mattermost.org").'
                         />
                     }
                     value={this.state.restrictCreationToDomains}
@@ -252,7 +252,7 @@ export default class UsersAndTeamsSettings extends AdminSettings {
                 <DropdownSetting
                     id='restrictDirectMessage'
                     values={[
-                        {value: RESTRICT_DIRECT_MESSAGE_ANY, text: Utils.localizeMessage('admin.team.restrict_direct_message_any', 'Any user on the Mattermost server')},
+                        {value: RESTRICT_DIRECT_MESSAGE_ANY, text: Utils.localizeMessage('admin.team.restrict_direct_message_any', 'Any user on the Messenger server')},
                         {value: RESTRICT_DIRECT_MESSAGE_TEAM, text: Utils.localizeMessage('admin.team.restrict_direct_message_team', 'Any member of the team')},
                     ]}
                     label={
@@ -264,7 +264,7 @@ export default class UsersAndTeamsSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.team.restrictDirectMessageDesc'
-                            defaultMessage='"Any user on the Mattermost server" enables users to open a Direct Message channel with any user on the server, even if they are not on any teams together. "Any member of the team" limits the ability in the Direct Messages "More" menu to only open Direct Message channels with users who are in the same team.<br /><br />Note: This setting only affects the UI, not permissions on the server.'
+                            defaultMessage='"Any user on the Messenger server" enables users to open a Direct Message channel with any user on the server, even if they are not on any teams together. "Any member of the team" limits the ability in the Direct Messages "More" menu to only open Direct Message channels with users who are in the same team.<br /><br />Note: This setting only affects the UI, not permissions on the server.'
                         />
                     }
                     value={this.state.restrictDirectMessage}

@@ -5,13 +5,13 @@ It's written in Golang and React and runs as a single Linux binary with MySQL or
 
 This project hosts the webapp client code. Please file issues at [/mattermost-server](https://github.com/mattermost/mattermost-server), which hosts the server code.
 
-- [Review product documentation](http://docs.mattermost.com/).
+- [Review product documentation](http://docs.tink.com/).
 - [Download compiled version](https://mattermost.org/download).
 
 Try out Mattermost:
 
-- [Join the Mattermost Contributor's server](https://pre-release.mattermost.com/) (latest nightly builds, unstable)
-- [Join the Mattermost Demo server](https://demo.mattermost.com) (latest stable version)
+- [Join the Mattermost Contributor's server](https://pre-release.tink.com/) (latest nightly builds, unstable)
+- [Join the Mattermost Demo server](https://demo.tink.com) (latest stable version)
 
 Deploy on Heroku
 
@@ -21,24 +21,24 @@ _Note: Heroku preview does not include email or persistent storage_
 
 Install on your own machine:
 
-- [One-line Docker Preview](http://docs.mattermost.com/install/docker-local-machine.html#one-line-docker-install)
-- [Developer Machine Setup](https://docs.mattermost.com/developer/dev-setup.html)
+- [One-line Docker Preview](http://docs.tink.com/install/docker-local-machine.html#one-line-docker-install)
+- [Developer Machine Setup](https://docs.tink.com/developer/dev-setup.html)
 - [Production Install Guides using Linux Binary](http://www.mattermost.org/installation/)
-- [Production Docker Install](https://docs.mattermost.com/install/prod-docker.html)
+- [Production Docker Install](https://docs.tink.com/install/prod-docker.html)
 
 Get Involved:
 
-- [Contribute Code](http://docs.mattermost.com/developer/contribution-guide.html)
+- [Contribute Code](http://docs.tink.com/developer/contribution-guide.html)
 - [Find "Help Wanted" projects](https://mattermost.atlassian.net/issues/?filter=10101)
-- [Join Developer Discussion on a Mattermost Server for contributors](https://pre-release.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676)
+- [Join Developer Discussion on a Mattermost Server for contributors](https://pre-release.tink.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676)
 - [File Bugs](http://www.mattermost.org/filing-issues/)
 - [Share Feature Ideas](http://www.mattermost.org/feature-requests/)
 - [Get Troubleshooting Help](https://forum.mattermost.org/t/how-to-use-the-troubleshooting-forum/150)
 
 Learn More:
 
-- [API Options - webhooks, slash commands, drivers and web service](http://docs.mattermost.com/developer/api.html)
-- [Localization Guide](http://docs.mattermost.com/developer/localization.html#translation-process)
+- [API Options - webhooks, slash commands, drivers and web service](http://docs.tink.com/developer/api.html)
+- [Localization Guide](http://docs.tink.com/developer/localization.html#translation-process)
 
 Get the Latest News:
 
@@ -46,4 +46,4 @@ Get the Latest News:
 - **Email** - Subscribe to our [newsletter](http://mattermost.us11.list-manage.com/subscribe?u=6cdba22349ae374e188e7ab8e&id=2add1c8034) (1 or 2 per month)
 - **IRC** - Join us on #matterbridge (thanks to [matterircd](https://github.com/42wim/matterircd))
 
-Any other questions, mail us at info@mattermost.com. We'd love to meet you!
+Any other questions, mail us at info@tink.com. We'd love to meet you!

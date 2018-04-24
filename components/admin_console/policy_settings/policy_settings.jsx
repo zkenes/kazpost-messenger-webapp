@@ -238,7 +238,7 @@ export default class PolicySettings extends AdminSettings {
                             values={{
                                 commandLineToolLink: (
                                     <a
-                                        href='https://docs.mattermost.com/administration/command-line-tools.html'
+                                        href='https://docs.tink.com/administration/command-line-tools.html'
                                         target='_blank'
                                         rel='noopener noreferrer'
                                     >
@@ -343,7 +343,7 @@ export default class PolicySettings extends AdminSettings {
                             values={{
                                 commandLineToolLink: (
                                     <a
-                                        href='https://docs.mattermost.com/administration/command-line-tools.html'
+                                        href='https://docs.tink.com/administration/command-line-tools.html'
                                         target='_blank'
                                         rel='noopener noreferrer'
                                     >

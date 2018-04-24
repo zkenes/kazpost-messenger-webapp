@@ -1,4 +1,4 @@
-// Copyright (c) 2017 Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017 TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import fs from 'fs';
@@ -86,7 +86,7 @@ describe('Actions.Admin', () => {
             get('/config').
             reply(200, {
                 TeamSettings: {
-                    SiteName: 'Mattermost',
+                    SiteName: 'Tink',
                 },
             });
 
@@ -101,7 +101,7 @@ describe('Actions.Admin', () => {
         const config = state.entities.admin.config;
         assert.ok(config);
         assert.ok(config.TeamSettings);
-        assert.ok(config.TeamSettings.SiteName === 'Mattermost');
+        assert.ok(config.TeamSettings.SiteName === 'Tink');
     });
 
     it('updateConfig', async () => {
@@ -109,7 +109,7 @@ describe('Actions.Admin', () => {
             get('/config').
             reply(200, {
                 TeamSettings: {
-                    SiteName: 'Mattermost',
+                    SiteName: 'Tink',
                 },
             });
 

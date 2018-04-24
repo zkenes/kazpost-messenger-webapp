@@ -445,7 +445,7 @@ export default class AbstractOutgoingWebhook extends React.Component {
                                         values={{
                                             link: (
                                                 <a
-                                                    href='https://about.mattermost.com/default-allow-internal-connections-settings-documentation/'
+                                                    href='https://about.tink.com/default-allow-internal-connections-settings-documentation/'
                                                     target='_blank'
                                                     rel='noopener noreferrer'
                                                 >

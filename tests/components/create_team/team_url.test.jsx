@@ -110,7 +110,7 @@ describe('/components/create_team/components/display_name', () => {
         expect(wrapper.state('nameError')).toEqual(
             <FormattedHTMLMessage
                 id='create_team.team_url.taken'
-                defaultMessage='This URL <a href="https://docs.mattermost.com/help/getting-started/creating-teams.html#team-url" target="_blank">starts with a reserved word</a> or is unavailable. Please try another.'
+                defaultMessage='This URL <a href="https://docs.tink.com/help/getting-started/creating-teams.html#team-url" target="_blank">starts with a reserved word</a> or is unavailable. Please try another.'
             />
         );
     });

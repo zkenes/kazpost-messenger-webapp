@@ -1,4 +1,4 @@
-// Copyright (c) 2016 Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2016 TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import fs from 'fs';
@@ -1584,12 +1584,12 @@ describe('Actions.Posts', () => {
     it('getOpenGraphMetadata', async () => {
         const {dispatch, getState} = store;
 
-        const url = 'https://about.mattermost.com';
-        const docs = 'https://docs.mattermost.com/';
+        const url = 'https://about.tink.com';
+        const docs = 'https://docs.tink.com/';
 
         nock(Client4.getBaseRoute()).
             post('/opengraph').
-            reply(200, {type: 'article', url: 'https://about.mattermost.com/', title: 'Mattermost private cloud messaging', description: 'Open source,  private cloud\nSlack-alternative, \nWorkplace messaging for web, PCs and phones.'});
+            reply(200, {type: 'article', url: 'https://about.tink.com/', title: 'Tink private cloud messaging', description: 'Open source,  private cloud\nSlack-alternative, \nWorkplace messaging for web, PCs and phones.'});
         await Actions.getOpenGraphMetadata(url)(dispatch, getState);
 
         nock(Client4.getBaseRoute()).

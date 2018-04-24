@@ -1,4 +1,4 @@
-// Copyright (c) 2017 Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2017 TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 
 import fs from 'fs';
@@ -172,7 +172,7 @@ describe('Actions.Files', () => {
             get(`/files/${fileId}/link`).
             query(true).
             reply(200, {
-                link: 'https://mattermost.com/files/ndans23ry2rtjd1z73g6i5f3fc/public?h=rE1-b2N1VVVMsAQssjwlfNawbVOwUy1TRDuTeGC_tys',
+                link: 'https://tink.com/files/ndans23ry2rtjd1z73g6i5f3fc/public?h=rE1-b2N1VVVMsAQssjwlfNawbVOwUy1TRDuTeGC_tys',
             });
 
         await Actions.getFilePublicLink(fileId)(store.dispatch, store.getState);
@@ -185,7 +185,7 @@ describe('Actions.Files', () => {
         }
 
         const filePublicLink = state.entities.files.filePublicLink.link;
-        assert.equal('https://mattermost.com/files/ndans23ry2rtjd1z73g6i5f3fc/public?h=rE1-b2N1VVVMsAQssjwlfNawbVOwUy1TRDuTeGC_tys', filePublicLink);
+        assert.equal('https://tink.com/files/ndans23ry2rtjd1z73g6i5f3fc/public?h=rE1-b2N1VVVMsAQssjwlfNawbVOwUy1TRDuTeGC_tys', filePublicLink);
         assert.ok(filePublicLink);
         assert.ok(filePublicLink.length > 0);
     });

@@ -428,7 +428,7 @@ export default class AbstractCommand extends React.PureComponent {
                                         values={{
                                             link: (
                                                 <a
-                                                    href='https://docs.mattermost.com/help/messaging/executing-commands.html#built-in-commands'
+                                                    href='https://docs.tink.com/help/messaging/executing-commands.html#built-in-commands'
                                                     target='_blank'
                                                     rel='noopener noreferrer'
                                                 >

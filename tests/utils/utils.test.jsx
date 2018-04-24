@@ -557,7 +557,7 @@ describe('Utils.isEmail', function() {
                 valid: false,
             },
             {
-                email: '<Jonathan Fritz> jonathan.fritz@mattermost.com',
+                email: '<Jonathan Fritz> jonathan.fritz@tink.com',
                 valid: false,
             },
             {

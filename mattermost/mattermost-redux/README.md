@@ -4,7 +4,7 @@ The project purpose is consolidating the storage, web utilities and logic of the
 
 [Redux](http://redux.js.org/docs/introduction/) is the backbone for this project and many of the design decisions and patterns stem from it.
 
-Mattermost is an open source Slack-alternative used by thousands of companies around the world in more than 12 languages. Learn more at https://mattermost.com.
+Mattermost is an open source Slack-alternative used by thousands of companies around the world in more than 12 languages. Learn more at https://tink.com.
 
 # Usage
 
@@ -84,7 +84,7 @@ function loginAndGetUser(username, password, callback) {
 }
 ```
 
-If you already have a [personal access token](https://docs.mattermost.com/guides/developer/personal-access-tokens.html) or session token, you can set the token manually instead of logging in:
+If you already have a [personal access token](https://docs.tink.com/guides/developer/personal-access-tokens.html) or session token, you can set the token manually instead of logging in:
 
 ```
 import {Client4} from 'mattermost-redux/client';
@@ -197,9 +197,9 @@ your project to reset to the specified package version on next server start.
 
 ### Contribute Code
 
-If you're contributing to help [migrate the webapp to Redux](https://docs.mattermost.com/developer/webapp-to-redux.html) go ahead and submit your PR. If you're just fixing a small bug or adding a small improvement then feel free to submit a PR for it. For everything else, please either work on an issue labeled `[Help Wanted]` or open an issue if there's something else that you'd like to work on.
+If you're contributing to help [migrate the webapp to Redux](https://docs.tink.com/developer/webapp-to-redux.html) go ahead and submit your PR. If you're just fixing a small bug or adding a small improvement then feel free to submit a PR for it. For everything else, please either work on an issue labeled `[Help Wanted]` or open an issue if there's something else that you'd like to work on.
 
-Feel free to drop by [the Redux channel](https://pre-release.mattermost.com/core/channels/redux) on our Mattermost instance.
+Feel free to drop by [the Redux channel](https://pre-release.tink.com/core/channels/redux) on our Mattermost instance.
 
 ### Running the Tests
 

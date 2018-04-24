@@ -18,7 +18,7 @@ node {
     }
     stage('Push to S3') {
         step([$class: 'S3BucketPublisher', dontWaitForConcurrentBuildCompletion: false, entries: [[
-            bucket: 'releases.mattermost.com/mattermost-webapp/${BRANCH_NAME}',
+            bucket: 'releases.tink.com/mattermost-webapp/${BRANCH_NAME}',
             excludedFile: '',
             flatten: true,
             gzipFiles: false,
@@ -33,7 +33,7 @@ node {
             useServerSideEncryption: false,
             userMetadata: [[key: 'Cache-Control', value: 'no-cache']]
         ], [
-            bucket: "releases.mattermost.com/mattermost-webapp/commit/${gitCommit}",
+            bucket: "releases.tink.com/mattermost-webapp/commit/${gitCommit}",
             excludedFile: '',
             flatten: true,
             gzipFiles: false,

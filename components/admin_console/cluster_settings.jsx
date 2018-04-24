@@ -84,7 +84,7 @@ export default class ClusterSettings extends AdminSettings {
                     <i className='fa fa-warning'/>
                     <FormattedHTMLMessage
                         id='admin.cluster.loadedFrom'
-                        defaultMessage='This configuration file was loaded from Node ID {clusterId}. Please see the Troubleshooting Guide in our <a href="http://docs.mattermost.com/deployment/cluster.html" target="_blank">documentation</a> if you are accessing the System Console through a load balancer and experiencing issues.'
+                        defaultMessage='This configuration file was loaded from Node ID {clusterId}. Please see the Troubleshooting Guide in our <a href="http://docs.tink.com/deployment/cluster.html" target="_blank">documentation</a> if you are accessing the System Console through a load balancer and experiencing issues.'
                         values={{
                             clusterId: Client4.clusterId,
                         }}
@@ -103,7 +103,7 @@ export default class ClusterSettings extends AdminSettings {
                     <i className='fa fa-warning'/>
                     <FormattedHTMLMessage
                         id='admin.cluster.should_not_change'
-                        defaultMessage='WARNING: These settings may not sync with the other servers in the cluster. High Availability inter-node communication will not start until you modify the config.json to be identical on all servers and restart Messenger. Please see the <a href="http://docs.mattermost.com/deployment/cluster.html" target="_blank">documentation</a> on how to add or remove a server from the cluster. If you are accessing the System Console through a load balancer and experiencing issues, please see the Troubleshooting Guide in our <a href="http://docs.mattermost.com/deployment/cluster.html" target="_blank">documentation</a>.'
+                        defaultMessage='WARNING: These settings may not sync with the other servers in the cluster. High Availability inter-node communication will not start until you modify the config.json to be identical on all servers and restart Messenger. Please see the <a href="http://docs.tink.com/deployment/cluster.html" target="_blank">documentation</a> on how to add or remove a server from the cluster. If you are accessing the System Console through a load balancer and experiencing issues, please see the Troubleshooting Guide in our <a href="http://docs.tink.com/deployment/cluster.html" target="_blank">documentation</a>.'
                     />
                 </div>
             );
@@ -136,7 +136,7 @@ export default class ClusterSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.cluster.enableDescription'
-                            defaultMessage='When true, Messenger will run in High Availability mode. Please see <a href="http://docs.mattermost.com/deployment/cluster.html" target="_blank">documentation</a> to learn more about configuring High Availability for Messenger.'
+                            defaultMessage='When true, Messenger will run in High Availability mode. Please see <a href="http://docs.tink.com/deployment/cluster.html" target="_blank">documentation</a> to learn more about configuring High Availability for Messenger.'
                         />
                     }
                     value={this.state.Enable}

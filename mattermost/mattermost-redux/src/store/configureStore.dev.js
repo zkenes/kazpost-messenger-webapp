@@ -1,4 +1,4 @@
-// Copyright (c) 2016-present Mattermost, Inc. All Rights Reserved.
+// Copyright (c) 2016-present TinkerTech, Inc. All Rights Reserved.
 // See License.txt for license information.
 /* eslint-disable no-undefined */
 
@@ -16,7 +16,7 @@ const devToolsEnhancer = (
     window.__REDUX_DEVTOOLS_EXTENSION__ :  // eslint-disable-line no-underscore-dangle
     () => {
         return devTools({
-            name: 'Mattermost',
+            name: 'Tink',
             hostname: 'localhost',
             port: 5678,
             realtime: true,

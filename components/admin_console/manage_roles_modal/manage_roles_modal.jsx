@@ -173,7 +173,7 @@ export default class ManageRolesModal extends React.PureComponent {
                     <p>
                         <FormattedHTMLMessage
                             id='admin.manage_roles.additionalRoles'
-                            defaultMessage='Select additional permissions for the account. <a href="https://about.mattermost.com/default-permissions" target="_blank">Read more about roles and permissions</a>.'
+                            defaultMessage='Select additional permissions for the account. <a href="https://about.tink.com/default-permissions" target="_blank">Read more about roles and permissions</a>.'
                         />
                     </p>
                     <div className='checkbox'>
@@ -193,7 +193,7 @@ export default class ManageRolesModal extends React.PureComponent {
                             </strong>
                             <FormattedMessage
                                 id='admin.manage_roles.postAllRole'
-                                defaultMessage='Access to post to all Mattermost channels including direct messages.'
+                                defaultMessage='Access to post to all Messenger channels including direct messages.'
                             />
                         </label>
                     </div>
@@ -214,7 +214,7 @@ export default class ManageRolesModal extends React.PureComponent {
                             </strong>
                             <FormattedMessage
                                 id='admin.manage_roles.postAllPublicRole'
-                                defaultMessage='Access to post to all Mattermost public channels.'
+                                defaultMessage='Access to post to all Messenger public channels.'
                             />
                         </label>
                     </div>
@@ -237,7 +237,7 @@ export default class ManageRolesModal extends React.PureComponent {
                             />
                             <FormattedHTMLMessage
                                 id='admin.manage_roles.allowUserAccessTokens'
-                                defaultMessage='Allow this account to generate <a href="https://about.mattermost.com/default-user-access-tokens" target="_blank">personal access tokens</a>.'
+                                defaultMessage='Allow this account to generate <a href="https://about.Messenger.com/default-user-access-tokens" target="_blank">personal access tokens</a>.'
                             />
                             <span className='d-block padding-top padding-bottom light'>
                                 <FormattedHTMLMessage

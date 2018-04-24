@@ -128,7 +128,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.webhooksDescription'
-                            defaultMessage='When true, incoming webhooks will be allowed. To help combat phishing attacks, all posts from webhooks will be labelled by a BOT tag. See <a href="http://docs.mattermost.com/developer/webhooks-incoming.html" target="_blank">documentation</a> to learn more.'
+                            defaultMessage='When true, incoming webhooks will be allowed. To help combat phishing attacks, all posts from webhooks will be labelled by a BOT tag. See <a href="http://docs.tink.com/developer/webhooks-incoming.html" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enableIncomingWebhooks}
@@ -145,7 +145,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.outWebhooksDesc'
-                            defaultMessage='When true, outgoing webhooks will be allowed. See <a href="http://docs.mattermost.com/developer/webhooks-outgoing.html" target="_blank">documentation</a> to learn more.'
+                            defaultMessage='When true, outgoing webhooks will be allowed. See <a href="http://docs.tink.com/developer/webhooks-outgoing.html" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enableOutgoingWebhooks}
@@ -162,7 +162,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.cmdsDesc'
-                            defaultMessage='When true, custom slash commands will be allowed. See <a href="http://docs.mattermost.com/developer/slash-commands.html" target="_blank">documentation</a> to learn more.'
+                            defaultMessage='When true, custom slash commands will be allowed. See <a href="http://docs.tink.com/developer/slash-commands.html" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enableCommands}
@@ -179,7 +179,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.oauth.providerDescription'
-                            defaultMessage='When true, Messenger can act as an OAuth 2.0 service provider allowing Messenger to authorize API requests from external applications. See <a href="https://docs.mattermost.com/developer/oauth-2-0-applications.html" target="_blank">documentation</a> to learn more.'
+                            defaultMessage='When true, Messenger can act as an OAuth 2.0 service provider allowing Messenger to authorize API requests from external applications. See <a href="https://docs.tink.com/developer/oauth-2-0-applications.html" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enableOAuthServiceProvider}
@@ -213,7 +213,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.overrideDescription'
-                            defaultMessage='When true, webhooks, slash commands and other integrations, such as <a href="https://docs.mattermost.com/integrations/zapier.html" target="_blank">Zapier</a>, will be allowed to change the username they are posting as. Note: Combined with allowing integrations to override profile picture icons, users may be able to perform phishing attacks by attempting to impersonate other users.'
+                            defaultMessage='When true, webhooks, slash commands and other integrations, such as <a href="https://docs.tink.com/integrations/zapier.html" target="_blank">Zapier</a>, will be allowed to change the username they are posting as. Note: Combined with allowing integrations to override profile picture icons, users may be able to perform phishing attacks by attempting to impersonate other users.'
                         />
                     }
                     value={this.state.enablePostUsernameOverride}
@@ -230,7 +230,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.iconDescription'
-                            defaultMessage='When true, webhooks, slash commands and other integrations, such as <a href="https://docs.mattermost.com/integrations/zapier.html" target="_blank">Zapier</a>, will be allowed to change the profile picture they post with. Note: Combined with allowing integrations to override usernames, users may be able to perform phishing attacks by attempting to impersonate other users.'
+                            defaultMessage='When true, webhooks, slash commands and other integrations, such as <a href="https://docs.tink.com/integrations/zapier.html" target="_blank">Zapier</a>, will be allowed to change the profile picture they post with. Note: Combined with allowing integrations to override usernames, users may be able to perform phishing attacks by attempting to impersonate other users.'
                         />
                     }
                     value={this.state.enablePostIconOverride}
@@ -247,7 +247,7 @@ export default class WebhookSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.userAccessTokensDescription'
-                            defaultMessage='When true, users can create <a href="https://about.mattermost.com/default-user-access-tokens" target="_blank">user access tokens</a> for integrations in <strong>Account Settings > Security</strong>. They can be used to authenticate against the API and give full access to the account.<br/><br/>To manage who can create personal access tokens or to search users by token ID, go to the <strong>System Console > Users</strong> page.'
+                            defaultMessage='When true, users can create <a href="https://about.tink.com/default-user-access-tokens" target="_blank">user access tokens</a> for integrations in <strong>Account Settings > Security</strong>. They can be used to authenticate against the API and give full access to the account.<br/><br/>To manage who can create personal access tokens or to search users by token ID, go to the <strong>System Console > Users</strong> page.'
                         />
                     }
                     value={this.state.enableUserAccessTokens}

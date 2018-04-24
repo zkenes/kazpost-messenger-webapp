@@ -190,7 +190,7 @@ export default class BrandImageSetting extends React.PureComponent {
                     <p className='help-text no-margin'>
                         <FormattedHTMLMessage
                             id='admin.team.uploadDesc'
-                            defaultMessage='Customize your user experience by adding a custom image to your login screen. See examples at <a href="http://docs.mattermost.com/administration/config-settings.html#custom-branding" target="_blank">docs.mattermost.com/administration/config-settings.html#custom-branding</a>.'
+                            defaultMessage='Customize your user experience by adding a custom image to your login screen. See examples at <a href="http://docs.tink.com/administration/config-settings.html#custom-branding" target="_blank">docs.tink.com/administration/config-settings.html#custom-branding</a>.'
                         />
                     </p>
                 </div>
