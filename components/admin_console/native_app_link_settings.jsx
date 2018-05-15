@@ -37,7 +37,7 @@ export default class NativeAppLinkSettings extends AdminSettings {
         return (
             <FormattedMessage
                 id='admin.customization.nativeAppLinks'
-                defaultMessage='Mattermost App Links'
+                defaultMessage='Messenger App Links'
             />
         );
     }
@@ -50,13 +50,13 @@ export default class NativeAppLinkSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.customization.appDownloadLinkTitle'
-                            defaultMessage='Mattermost Apps Download Page Link:'
+                            defaultMessage='Messenger Apps Download Page Link:'
                         />
                     }
                     helpText={
                         <FormattedMessage
                             id='admin.customization.appDownloadLinkDesc'
-                            defaultMessage='Add a link to a download page for the Mattermost apps. When a link is present, an option to "Download Mattermost Apps" will be added in the Main Menu so users can find the download page. Leave this field blank to hide the option from the Main Menu.'
+                            defaultMessage='Add a link to a download page for the Messenger apps. When a link is present, an option to "Download Messenger Apps" will be added in the Main Menu so users can find the download page. Leave this field blank to hide the option from the Main Menu.'
                         />
                     }
                     value={this.state.appDownloadLink}

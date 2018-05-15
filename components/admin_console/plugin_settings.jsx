@@ -52,7 +52,7 @@ export default class PluginSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.plugins.settings.enableDesc'
-                            defaultMessage='When true, enables plugins on your Mattermost server. Use plugins to integrate with third-party systems, extend functionality or customize the user interface of your Mattermost server. See <a href="https://about.mattermost.com/default-plugins" target="_blank">documentation</a> to learn more.'
+                            defaultMessage='When true, enables plugins on your Messenger server. Use plugins to integrate with third-party systems, extend functionality or customize the user interface of your Messenger server. See <a href="https://about.Messenger.com/default-plugins" target="_blank">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.enablePlugins}

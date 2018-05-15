@@ -18,10 +18,10 @@ Edge:
     Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
 
 Desktop App:
-    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Mattermost/1.2.1 Chrome/49.0.2623.75 Electron/0.37.8 Safari/537.36
+    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Messenger/1.2.1 Chrome/49.0.2623.75 Electron/0.37.8 Safari/537.36
     Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
-    Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Mattermost/3.4.1 Chrome/53.0.2785.113 Electron/1.4.2 Safari/537.36
-    Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Mattermost/3.4.1 Chrome/51.0.2704.106 Electron/1.2.8 Safari/537.36
+    Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Messenger/3.4.1 Chrome/53.0.2785.113 Electron/1.4.2 Safari/537.36
+    Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Messenger/3.4.1 Chrome/51.0.2704.106 Electron/1.2.8 Safari/537.36
 
 Android Chrome:
     Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19
@@ -83,13 +83,13 @@ export function isIosClassic() {
     return isMobileApp() && isIos();
 }
 
-// Returns true if and only if the user is using a Mattermost mobile app. This will return false if the user is using the
+// Returns true if and only if the user is using a Messenger mobile app. This will return false if the user is using the
 // web browser on a mobile device.
 export function isMobileApp() {
     return isMobile() && !isIosWeb() && !isAndroidWeb();
 }
 
-// Returns true if and only if the user is using Mattermost from either the mobile app or the web browser on a mobile device.
+// Returns true if and only if the user is using Messenger from either the mobile app or the web browser on a mobile device.
 export function isMobile() {
     return isIos() || isAndroid();
 }

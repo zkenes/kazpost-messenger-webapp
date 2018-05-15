@@ -93,7 +93,7 @@ exports[`components/integrations/AbstractOAuthApp should match snapshot 1`] = `
               className="form__help"
             >
               <FormattedMessage
-                defaultMessage="When true, the OAuth 2.0 application is considered trusted by the Mattermost server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization."
+                defaultMessage="When true, the OAuth 2.0 application is considered trusted by the Messenger server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization."
                 id="add_oauth_app.trusted.help"
                 values={Object {}}
               />
@@ -413,7 +413,7 @@ exports[`components/integrations/AbstractOAuthApp should match snapshot, display
               className="form__help"
             >
               <FormattedMessage
-                defaultMessage="When true, the OAuth 2.0 application is considered trusted by the Mattermost server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization."
+                defaultMessage="When true, the OAuth 2.0 application is considered trusted by the Messenger server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization."
                 id="add_oauth_app.trusted.help"
                 values={Object {}}
               />

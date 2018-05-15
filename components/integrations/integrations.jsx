@@ -146,7 +146,7 @@ export default class Integrations extends React.Component {
                         description={
                             <FormattedMessage
                                 id='integrations.oauthApps.description'
-                                defaultMessage='Auth 2.0 allows external applications to make authorized requests to the Mattermost API.'
+                                defaultMessage='Auth 2.0 allows external applications to make authorized requests to the Messenger API.'
                             />
                         }
                         link={'/' + this.props.team.name + '/integrations/oauth2-apps'}
@@ -168,13 +168,13 @@ export default class Integrations extends React.Component {
                 <div className='backstage-list__help'>
                     <FormattedMessage
                         id='integrations.help'
-                        defaultMessage='Visit the {appDirectory} to find self-hosted, third-party apps and integrations for Mattermost.'
+                        defaultMessage='Visit the {appDirectory} to find self-hosted, third-party apps and integrations for Messenger.'
                         values={{
                             appDirectory: (
                                 <a
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    href='https://about.mattermost.com/default-app-directory/'
+                                    href='https://about.Messenger.com/default-app-directory/'
                                 >
                                     <FormattedMessage
                                         id='integrations.help.appDirectory'

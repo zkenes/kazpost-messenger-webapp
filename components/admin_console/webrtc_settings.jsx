@@ -110,7 +110,7 @@ export default class WebrtcSettings extends AdminSettings {
                         <FormattedMessage
                             id='admin.webrtc.gatewayAdminUrlDescription'
                             defaultMessage='Enter https://<Messenger-webrtc-gateway-url>:<port>/admin. Make sure you use HTTP or HTTPS in your URL depending on your server configuration.
-                            Mattermost WebRTC uses this URL to obtain valid tokens for each peer to establish the connection.'
+                            Messenger WebRTC uses this URL to obtain valid tokens for each peer to establish the connection.'
                         />
                     }
                     value={this.state.gatewayAdminUrl}
@@ -144,7 +144,7 @@ export default class WebrtcSettings extends AdminSettings {
                             defaultMessage='STUN URI:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.webrtc.stunUriExample', 'E.g.: "stun:webrtc.mattermost.com:5349"')}
+                    placeholder={Utils.localizeMessage('admin.webrtc.stunUriExample', 'E.g.: "stun:webrtc.Messenger.com:5349"')}
                     helpText={
                         <FormattedMessage
                             id='admin.webrtc.stunUriDescription'
@@ -163,7 +163,7 @@ export default class WebrtcSettings extends AdminSettings {
                             defaultMessage='TURN URI:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.webrtc.turnUriExample', 'E.g.: "turn:webrtc.mattermost.com:5349"')}
+                    placeholder={Utils.localizeMessage('admin.webrtc.turnUriExample', 'E.g.: "turn:webrtc.Messenger.com:5349"')}
                     helpText={
                         <FormattedMessage
                             id='admin.webrtc.turnUriDescription'

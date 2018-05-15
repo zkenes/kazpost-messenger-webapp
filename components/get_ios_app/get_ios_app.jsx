@@ -16,7 +16,7 @@ export default function GetIosApp({iosAppDownloadLink}) {
             <h1 className='get-app__header'>
                 <FormattedMessage
                     id='get_app.iosHeader'
-                    defaultMessage='Mattermost works best if you switch to our iPhone app'
+                    defaultMessage='Messenger works best if you switch to our iPhone app'
                 />
             </h1>
             <hr/>
@@ -38,12 +38,12 @@ export default function GetIosApp({iosAppDownloadLink}) {
                 />
             </h2>
             <a
-                className='btn btn-primary get-ios-app__open-mattermost'
-                href='mattermost://'
+                className='btn btn-primary get-ios-app__open-Messenger'
+                href='Messenger://'
             >
                 <FormattedMessage
                     id='get_app.openMattermost'
-                    defaultMessage='Open Mattermost'
+                    defaultMessage='Open Messenger'
                 />
             </a>
             <span className='get-app__continue-with-browser'>

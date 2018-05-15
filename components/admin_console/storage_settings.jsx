@@ -141,7 +141,7 @@ export default class StorageSettings extends AdminSettings {
                         helpText={
                             <FormattedHTMLMessage
                                 id='admin.image.amazonS3SSEDescription'
-                                defaultMessage='When true, encrypt files in Amazon S3 using server-side encryption with Amazon S3-managed keys. See <a href="https://about.mattermost.com/default-server-side-encryption" target="_blank">documentation</a> to learn more.'
+                                defaultMessage='When true, encrypt files in Amazon S3 using server-side encryption with Amazon S3-managed keys. See <a href="https://about.Messenger.com/default-server-side-encryption" target="_blank">documentation</a> to learn more.'
                             />
                         }
                         value={this.state.amazonS3SSE}
@@ -226,7 +226,7 @@ export default class StorageSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.image.amazonS3RegionDescription'
-                            defaultMessage='AWS region you selected when creating your S3 bucket. If no region is set, Mattermost attempts to get the appropriate region from AWS, or sets it to "us-east-1" if none found.'
+                            defaultMessage='AWS region you selected when creating your S3 bucket. If no region is set, Messenger attempts to get the appropriate region from AWS, or sets it to "us-east-1" if none found.'
                         />
                     }
                     value={this.state.amazonS3Region}
@@ -264,7 +264,7 @@ export default class StorageSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.image.amazonS3IdDescription'
-                            defaultMessage='(Optional) Only required if you do not want to authenticate to S3 using an <a target="_blank" href="https://about.mattermost.com/default-iam-role">IAM role</a>. Enter the Access Key ID provided by your Amazon EC2 administrator.'
+                            defaultMessage='(Optional) Only required if you do not want to authenticate to S3 using an <a target="_blank" href="https://about.Messenger.com/default-iam-role">IAM role</a>. Enter the Access Key ID provided by your Amazon EC2 administrator.'
                         />
                     }
                     value={this.state.amazonS3AccessKeyId}
@@ -384,7 +384,7 @@ export default class StorageSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.image.proxyTypeDescription'
-                            defaultMessage='Configure an image proxy to load all Markdown images through a proxy. The image proxy prevents users from making insecure image requests, provides caching for increased performance, and automates image adjustments such as resizing. See <a href="https://about.mattermost.com/default-image-proxy-documentation">documentation</a> to learn more.'
+                            defaultMessage='Configure an image proxy to load all Markdown images through a proxy. The image proxy prevents users from making insecure image requests, provides caching for increased performance, and automates image adjustments such as resizing. See <a href="https://about.Messenger.com/default-image-proxy-documentation">documentation</a> to learn more.'
                         />
                     }
                     value={this.state.imageProxyType}

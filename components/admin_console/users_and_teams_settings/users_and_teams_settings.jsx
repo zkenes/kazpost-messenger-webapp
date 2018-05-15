@@ -239,11 +239,11 @@ export default class UsersAndTeamsSettings extends AdminSettings {
                             defaultMessage='Restrict account creation to specified email domains:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.team.restrictExample', 'Ex "corp.tink.com, mattermost.org"')}
+                    placeholder={Utils.localizeMessage('admin.team.restrictExample', 'Ex "corp.tink.com, tink.org"')}
                     helpText={
                         <FormattedMessage
                             id='admin.team.restrictDescription'
-                            defaultMessage='Teams and user accounts can only be created from a specific domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.tink.com, mattermost.org").'
+                            defaultMessage='Teams and user accounts can only be created from a specific domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.tink.com, tink.org").'
                         />
                     }
                     value={this.state.restrictCreationToDomains}

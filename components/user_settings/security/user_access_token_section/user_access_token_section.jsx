@@ -227,7 +227,7 @@ export default class UserAccessTokenSection extends React.Component {
                 <div className='alert alert-danger'>
                     <FormattedHTMLMessage
                         id='user.settings.tokens.confirmDeleteMessage'
-                        defaultMessage='Any integrations using this token will no longer be able to access the Mattermost API. You cannot undo this action. <br /><br />Are you sure want to delete the {description} token?'
+                        defaultMessage='Any integrations using this token will no longer be able to access the Messenger API. You cannot undo this action. <br /><br />Are you sure want to delete the {description} token?'
                         values={{
                             description: token.description,
                         }}
@@ -398,7 +398,7 @@ export default class UserAccessTokenSection extends React.Component {
                 <span>
                     <FormattedHTMLMessage
                         id='user.settings.tokens.description_mobile'
-                        defaultMessage='<a href="https://about.mattermost.com/default-user-access-tokens" target="_blank">Personal access tokens</a> function similarly to session tokens and can be used by integrations to <a href="https://about.mattermost.com/default-api-authentication" target="_blank">authenticate against the REST API</a>. Create new tokens on your desktop.'
+                        defaultMessage='<a href="https://about.Messenger.com/default-user-access-tokens" target="_blank">Personal access tokens</a> function similarly to session tokens and can be used by integrations to <a href="https://about.Messenger.com/default-api-authentication" target="_blank">authenticate against the REST API</a>. Create new tokens on your desktop.'
                     />
                 </span>
             );
@@ -407,7 +407,7 @@ export default class UserAccessTokenSection extends React.Component {
                 <span>
                     <FormattedHTMLMessage
                         id='user.settings.tokens.description'
-                        defaultMessage='<a href="https://about.mattermost.com/default-user-access-tokens" target="_blank">Personal access tokens</a> function similarly to session tokens and can be used by integrations to <a href="https://about.mattermost.com/default-api-authentication" target="_blank">authenticate against the REST API</a>.'
+                        defaultMessage='<a href="https://about.Messenger.com/default-user-access-tokens" target="_blank">Personal access tokens</a> function similarly to session tokens and can be used by integrations to <a href="https://about.Messenger.com/default-api-authentication" target="_blank">authenticate against the REST API</a>.'
                     />
                 </span>
             );

@@ -123,7 +123,7 @@ export default class EmailSettings extends AdminSettings {
                     <FormattedHTMLMessage
                         key='admin.email.notification.contents.full.description'
                         id='admin.email.notification.contents.full.description'
-                        defaultMessage='Sender name and channel are included in email notifications.</br>Typically used for compliance reasons if Mattermost contains confidential information and policy dictates it cannot be stored in email.'
+                        defaultMessage='Sender name and channel are included in email notifications.</br>Typically used for compliance reasons if Messenger contains confidential information and policy dictates it cannot be stored in email.'
                     />
                 );
             } else if (this.state.emailNotificationContentsType === EMAIL_NOTIFICATION_CONTENTS_GENERIC) {
@@ -131,7 +131,7 @@ export default class EmailSettings extends AdminSettings {
                     <FormattedHTMLMessage
                         key='admin.email.notification.contents.generic.description'
                         id='admin.email.notification.contents.generic.description'
-                        defaultMessage='Only the name of the person who sent the message, with no information about channel name or message contents are included in email notifications.</br>Typically used for compliance reasons if Mattermost contains confidential information and policy dictates it cannot be stored in email.'
+                        defaultMessage='Only the name of the person who sent the message, with no information about channel name or message contents are included in email notifications.</br>Typically used for compliance reasons if Messenger contains confidential information and policy dictates it cannot be stored in email.'
                     />
                 );
             }
@@ -167,7 +167,7 @@ export default class EmailSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.email.notificationsDescription'
-                            defaultMessage='Typically set to true in production. When true, Mattermost attempts to send email notifications. Developers may set this field to false to skip email setup for faster development.<br />Setting this to true removes the Preview Mode banner (requires logging out and logging back in after setting is changed).'
+                            defaultMessage='Typically set to true in production. When true, Messenger attempts to send email notifications. Developers may set this field to false to skip email setup for faster development.<br />Setting this to true removes the Preview Mode banner (requires logging out and logging back in after setting is changed).'
                         />
                     }
                     value={this.state.sendEmailNotifications}
@@ -202,11 +202,11 @@ export default class EmailSettings extends AdminSettings {
                             defaultMessage='Notification Display Name:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.email.notificationDisplayExample', 'Ex: "Mattermost Notification", "System", "No-Reply"')}
+                    placeholder={Utils.localizeMessage('admin.email.notificationDisplayExample', 'Ex: "Messenger Notification", "System", "No-Reply"')}
                     helpText={
                         <FormattedMessage
                             id='admin.email.notificationDisplayDescription'
-                            defaultMessage='Display name on email account used when sending notification emails from Mattermost.'
+                            defaultMessage='Display name on email account used when sending notification emails from Messenger.'
                         />
                     }
                     value={this.state.feedbackName}
@@ -221,11 +221,11 @@ export default class EmailSettings extends AdminSettings {
                             defaultMessage='Notification From Address:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.email.notificationEmailExample', 'Ex: "mattermost@yourcompany.com", "admin@yourcompany.com"')}
+                    placeholder={Utils.localizeMessage('admin.email.notificationEmailExample', 'Ex: "Messenger@yourcompany.com", "admin@yourcompany.com"')}
                     helpText={
                         <FormattedMessage
                             id='admin.email.notificationEmailDescription'
-                            defaultMessage='Email address displayed on email account used when sending notification emails from Mattermost.'
+                            defaultMessage='Email address displayed on email account used when sending notification emails from Messenger.'
                         />
                     }
                     value={this.state.feedbackEmail}
@@ -244,7 +244,7 @@ export default class EmailSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.email.notificationOrganizationDescription'
-                            defaultMessage='Organization name and address displayed on email notifications from Mattermost, such as "© ABC Corporation, 565 Knight Way, Palo Alto, California, 94305, USA". If the field is left empty, the organization name and address will not be displayed.'
+                            defaultMessage='Organization name and address displayed on email notifications from Messenger, such as "© ABC Corporation, 565 Knight Way, Palo Alto, California, 94305, USA". If the field is left empty, the organization name and address will not be displayed.'
                         />
                     }
                     value={this.state.feedbackOrganization}
@@ -367,7 +367,7 @@ export default class EmailSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.email.skipServerCertificateVerification.description'
-                            defaultMessage='When true, Mattermost will not verify the email server certificate.'
+                            defaultMessage='When true, Messenger will not verify the email server certificate.'
                         />
                     }
                     value={this.state.skipServerCertificateVerification}

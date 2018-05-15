@@ -164,7 +164,7 @@ export default class AboutBuildModal extends React.PureComponent {
                     <Modal.Title>
                         <FormattedMessage
                             id='about.title'
-                            defaultMessage='About KazPost'
+                            defaultMessage='About Tink'
                         />
                     </Modal.Title>
                 </Modal.Header>
@@ -174,13 +174,13 @@ export default class AboutBuildModal extends React.PureComponent {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>{'KazPost'} {title}</h3>
+                            <h3 className='about-modal__title'>{'Tink'} {title}</h3>
                             <p className='about-modal__subtitle padding-bottom'>{subTitle}</p>
                             <div className='form-group less'>
                                 <div>
                                     <FormattedMessage
                                         id='about.version'
-                                        defaultMessage='KazPost Messenger Version:'
+                                        defaultMessage='Tink Messenger Version:'
                                     />
                                     <span id='versionString'>{'\u00a0' + mmversion}</span>
                                 </div>

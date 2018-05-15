@@ -141,7 +141,7 @@ export default {
                             label: 'admin.service.siteURL',
                             label_default: 'Site URL:',
                             help_text: 'admin.service.siteURLDescription',
-                            help_text_default: 'The URL that users will use to access Messenger. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://mattermost.example.com:8065. This setting is required.',
+                            help_text_default: 'The URL that users will use to access Messenger. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://Messenger.example.com:8065. This setting is required.',
                             placeholder: 'admin.service.siteURLExample',
                             placeholder_default: '',
                         },
@@ -247,7 +247,7 @@ export default {
                             label: 'admin.service.enableAPIv3',
                             label_default: 'Allow use of API v3 endpoints:',
                             help_text: 'admin.service.enableAPIv3Description',
-                            help_text_default: 'Set to false to disable all version 3 endpoints of the REST API. Integrations that rely on API v3 will fail and can then be identified for migration to API v4. API v3 is deprecated and will be removed in the near future. See <a href="https://api.mattermost.com" target="_blank">https://api.mattermost.com</a> for details.',
+                            help_text_default: 'Set to false to disable all version 3 endpoints of the REST API. Integrations that rely on API v3 will fail and can then be identified for migration to API v4. API v3 is deprecated and will be removed in the near future. See <a href="https://api.Messenger.com" target="_blank">https://api.Messenger.com</a> for details.',
                             help_text_html: true,
                         },
                         {
@@ -281,7 +281,7 @@ export default {
                             label: 'admin.reload.button',
                             label_default: 'Reload Configuration From Disk',
                             help_text: 'admin.reload.reloadDescription',
-                            help_text_default: 'Deployments using multiple databases can switch from one master database to another without restarting the Mattermost server by updating "config.json" to the new desired configuration and using the {featureName} feature to load the new settings while the server is running. The administrator should then use the {recycleDatabaseConnections} feature to recycle the database connections based on the new settings.',
+                            help_text_default: 'Deployments using multiple databases can switch from one master database to another without restarting the Messenger server by updating "config.json" to the new desired configuration and using the {featureName} feature to load the new settings while the server is running. The administrator should then use the {recycleDatabaseConnections} feature to recycle the database connections based on the new settings.',
                             help_text_values: {
                                 featureName: (
                                     <b>
@@ -348,7 +348,7 @@ export default {
                             label_default: 'Available Languages:',
                             help_text: 'admin.general.localization.availableLocalesDescription',
                             help_text_html: true,
-                            help_text_default: 'Set which languages are available for users in Account Settings (leave this field blank to have all supported languages available). If you\'re manually adding new languages, the <strong>Default Client Language</strong> must be added before saving this setting.<br /><br />Would like to help with translations? Join the <a href="http://translate.mattermost.com/" target="_blank">Mattermost Translation Server</a> to contribute.',
+                            help_text_default: 'Set which languages are available for users in Account Settings (leave this field blank to have all supported languages available). If you\'re manually adding new languages, the <strong>Default Client Language</strong> must be added before saving this setting.<br /><br />Would like to help with translations? Join the <a href="http://translate.Messenger.com/" target="_blank">Messenger Translation Server</a> to contribute.',
                             multiple: true,
                             no_result: 'admin.general.localization.availableLocalesNoResults',
                             no_result_default: 'No results found',
@@ -392,7 +392,7 @@ export default {
                         {
                             type: Constants.SettingsTypes.TYPE_BANNER,
                             label: 'admin.compliance.noLicense',
-                            label_default: '<h4 class="banner__heading">Note:</h4><p>Compliance is an enterprise feature. Your current license does not support Compliance. Click <a href="http://mattermost.com"target="_blank">here</a> for information and pricing on enterprise licenses.</p>',
+                            label_default: '<h4 class="banner__heading">Note:</h4><p>Compliance is an enterprise feature. Your current license does not support Compliance. Click <a href="http://Messenger.com"target="_blank">here</a> for information and pricing on enterprise licenses.</p>',
                             isHidden: needsUtils.hasLicense,
                             banner_type: 'warning',
                         },
@@ -402,7 +402,7 @@ export default {
                             label: 'admin.compliance.enableTitle',
                             label_default: 'Enable Compliance Reporting:',
                             help_text: 'admin.compliance.enableDesc',
-                            help_text_default: 'When true, Mattermost allows compliance reporting from the <strong>Compliance and Auditing</strong> tab. See <a href="https://docs.mattermost.com/administration/compliance.html" target="_blank">documentation</a> to learn more.',
+                            help_text_default: 'When true, Messenger allows compliance reporting from the <strong>Compliance and Auditing</strong> tab. See <a href="https://docs.Messenger.com/administration/compliance.html" target="_blank">documentation</a> to learn more.',
                             help_text_html: true,
                             isHidden: needsUtils.not(needsUtils.hasLicense),
                         },
@@ -424,7 +424,7 @@ export default {
                             label: 'admin.compliance.enableDailyTitle',
                             label_default: 'Enable Daily Report:',
                             help_text: 'admin.compliance.enableDailyDesc',
-                            help_text_default: 'When true, Mattermost will generate a daily compliance report.',
+                            help_text_default: 'When true, Messenger will generate a daily compliance report.',
                             isDisabled: needsUtils.stateValueEqual('Enable', false),
                             isHidden: needsUtils.not(needsUtils.hasLicense),
                         },
@@ -468,7 +468,7 @@ export default {
                             label: 'admin.log.fileTitle',
                             label_default: 'Output logs to file: ',
                             help_text: 'admin.log.fileDescription',
-                            help_text_default: 'Typically set to true in production. When true, logged events are written to the mattermost.log file in the directory specified in the File Log Directory field. The logs are rotated at 10,000 lines and archived to a file in the same directory, and given a name with a datestamp and serial number. For example, mattermost.2017-03-31.001.',
+                            help_text_default: 'Typically set to true in production. When true, logged events are written to the Messenger.log file in the directory specified in the File Log Directory field. The logs are rotated at 10,000 lines and archived to a file in the same directory, and given a name with a datestamp and serial number. For example, Messenger.2017-03-31.001.',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_DROPDOWN,
@@ -486,7 +486,7 @@ export default {
                             label: 'admin.log.locationTitle',
                             label_default: 'File Log Directory:',
                             help_text: 'admin.log.locationDescription',
-                            help_text_default: 'The location of the log files. If blank, they are stored in the ./logs directory. The path that you set must exist and Mattermost must have write permissions in it.',
+                            help_text_default: 'The location of the log files. If blank, they are stored in the ./logs directory. The path that you set must exist and Messenger must have write permissions in it.',
                             placeholder: 'admin.log.locationPlaceholder',
                             placeholder_default: 'Enter your file location',
                             isDisabled: needsUtils.stateValueEqual('EnableFile', false),
@@ -525,7 +525,7 @@ export default {
                             label: 'admin.log.enableDiagnostics',
                             label_default: 'Enable Diagnostics and Error Reporting:',
                             help_text: 'admin.log.enableDiagnosticsDescription',
-                            help_text_default: 'Enable this feature to improve the quality and performance of Mattermost by sending error reporting and diagnostic information to Mattermost, Inc. Read our <a href="https://about.mattermost.com/default-privacy-policy/" target="_blank">privacy policy</a> to learn more.',
+                            help_text_default: 'Enable this feature to improve the quality and performance of Messenger by sending error reporting and diagnostic information to Messenger, Inc. Read our <a href="https://about.Messenger.com/default-privacy-policy/" target="_blank">privacy policy</a> to learn more.',
                             help_text_html: true,
                         },
                     ],
@@ -545,7 +545,7 @@ export default {
                             label: 'admin.email.allowSignupTitle',
                             label_default: 'Enable account creation with email:',
                             help_text: 'admin.email.allowSignupDescription',
-                            help_text_default: 'When true, Mattermost allows account creation using email and password. This value should be false only when you want to limit sign up to a single sign-on service like AD/LDAP, SAML or GitLab.',
+                            help_text_default: 'When true, Messenger allows account creation using email and password. This value should be false only when you want to limit sign up to a single sign-on service like AD/LDAP, SAML or GitLab.',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_BOOL,
@@ -553,7 +553,7 @@ export default {
                             label: 'admin.email.allowEmailSignInTitle',
                             label_default: 'Enable sign-in with email:',
                             help_text: 'admin.email.allowEmailSignInDescription',
-                            help_text_default: 'When true, Mattermost allows users to sign in using their email and password.',
+                            help_text_default: 'When true, Messenger allows users to sign in using their email and password.',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_BOOL,
@@ -578,7 +578,7 @@ export default {
                             label: 'admin.ldap.enableTitle',
                             label_default: 'Enable sign-in with AD/LDAP:',
                             help_text: 'admin.ldap.enableDesc',
-                            help_text_default: 'When true, Mattermost allows login using AD/LDAP',
+                            help_text_default: 'When true, Messenger allows login using AD/LDAP',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_BOOL,
@@ -586,7 +586,7 @@ export default {
                             label: 'admin.ldap.enableSyncTitle',
                             label_default: 'Enable Synchronization with AD/LDAP:',
                             help_text: 'admin.ldap.enableSyncDesc',
-                            help_text_default: 'When true, Mattermost periodically synchronizes users from AD/LDAP. When false, user attributes are updated from AD/LDAP during user login only.',
+                            help_text_default: 'When true, Messenger periodically synchronizes users from AD/LDAP. When false, user attributes are updated from AD/LDAP during user login only.',
                         },
                         {
                             type: Constants.SettingsTypes.TYPE_TEXT,
@@ -608,7 +608,7 @@ export default {
                             label: 'admin.ldap.portTitle',
                             label_default: 'AD/LDAP Port:',
                             help_text: 'admin.ldap.portDesc',
-                            help_text_default: 'The port Mattermost will use to connect to the AD/LDAP server. Default is 389.',
+                            help_text_default: 'The port Messenger will use to connect to the AD/LDAP server. Default is 389.',
                             placeholder: 'admin.ldap.portEx',
                             placeholder_default: 'E.g.: "389"',
                             isDisabled: needsUtils.and(
@@ -659,7 +659,7 @@ export default {
                             label: 'admin.ldap.baseTitle',
                             label_default: 'BaseDN:',
                             help_text: 'admin.ldap.baseDesc',
-                            help_text_default: 'The Base DN is the Distinguished Name of the location where Mattermost should start its search for users in the AD/LDAP tree.',
+                            help_text_default: 'The Base DN is the Distinguished Name of the location where Messenger should start its search for users in the AD/LDAP tree.',
                             placeholder: 'admin.ldap.baseEx',
                             placeholder_default: 'E.g.: "ou=Unit Name,dc=corp,dc=example,dc=com"',
                             isDisabled: needsUtils.and(
@@ -673,7 +673,7 @@ export default {
                             label: 'admin.ldap.bindUserTitle',
                             label_default: 'Bind Username:',
                             help_text: 'admin.ldap.bindUserDesc',
-                            help_text_default: 'The username used to perform the AD/LDAP search. This should typically be an account created specifically for use with Mattermost. It should have access limited to read the portion of the AD/LDAP tree specified in the BaseDN field.',
+                            help_text_default: 'The username used to perform the AD/LDAP search. This should typically be an account created specifically for use with Messenger. It should have access limited to read the portion of the AD/LDAP tree specified in the BaseDN field.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -697,7 +697,7 @@ export default {
                             label: 'admin.ldap.userFilterTitle',
                             label_default: 'User Filter:',
                             help_text: 'admin.ldap.userFilterDisc',
-                            help_text_default: '(Optional) Enter an AD/LDAP Filter to use when searching for user objects. Only the users selected by the query will be able to access Mattermost. For Active Directory, the query to filter out disabled users is (&(objectCategory=Person)(!(UserAccountControl:1.2.840.113556.1.4.803:=2))).',
+                            help_text_default: '(Optional) Enter an AD/LDAP Filter to use when searching for user objects. Only the users selected by the query will be able to access Messenger. For Active Directory, the query to filter out disabled users is (&(objectCategory=Person)(!(UserAccountControl:1.2.840.113556.1.4.803:=2))).',
                             placeholder: 'admin.ldap.userFilterEx',
                             placeholder_default: 'Ex. "(objectClass=user)"',
                             isDisabled: needsUtils.and(
@@ -713,7 +713,7 @@ export default {
                             placeholder: 'admin.ldap.firstnameAttrEx',
                             placeholder_default: 'E.g.: "givenName"',
                             help_text: 'admin.ldap.firstnameAttrDesc',
-                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the first name of users in Mattermost.  When set, users will not be able to edit their first name, since it is synchronized with the LDAP server. When left blank, users can set their own first name in Account Settings.',
+                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the first name of users in Messenger.  When set, users will not be able to edit their first name, since it is synchronized with the LDAP server. When left blank, users can set their own first name in Account Settings.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -727,7 +727,7 @@ export default {
                             placeholder: 'admin.ldap.lastnameAttrEx',
                             placeholder_default: 'E.g.: "sn"',
                             help_text: 'admin.ldap.lastnameAttrDesc',
-                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the last name of users in Mattermost. When set, users will not be able to edit their last name, since it is synchronized with the LDAP server. When left blank, users can set their own last name in Account Settings.',
+                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the last name of users in Messenger. When set, users will not be able to edit their last name, since it is synchronized with the LDAP server. When left blank, users can set their own last name in Account Settings.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -741,7 +741,7 @@ export default {
                             placeholder: 'admin.ldap.nicknameAttrEx',
                             placeholder_default: 'E.g.: "nickname"',
                             help_text: 'admin.ldap.nicknameAttrDesc',
-                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the nickname of users in Mattermost. When set, users will not be able to edit their nickname, since it is synchronized with the LDAP server. When left blank, users can set their own nickname in Account Settings.',
+                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the nickname of users in Messenger. When set, users will not be able to edit their nickname, since it is synchronized with the LDAP server. When left blank, users can set their own nickname in Account Settings.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -755,7 +755,7 @@ export default {
                             placeholder: 'admin.ldap.positionAttrEx',
                             placeholder_default: 'E.g.: "title"',
                             help_text: 'admin.ldap.positionAttrDesc',
-                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the position field in Mattermost.',
+                            help_text_default: '(Optional) The attribute in the AD/LDAP server that will be used to populate the position field in Messenger.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -769,7 +769,7 @@ export default {
                             placeholder: 'admin.ldap.emailAttrEx',
                             placeholder_default: 'E.g.: "mail" or "userPrincipalName"',
                             help_text: 'admin.ldap.emailAttrDesc',
-                            help_text_default: 'The attribute in the AD/LDAP server that will be used to populate the email addresses of users in Mattermost.',
+                            help_text_default: 'The attribute in the AD/LDAP server that will be used to populate the email addresses of users in Messenger.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -783,7 +783,7 @@ export default {
                             placeholder: 'admin.ldap.usernameAttrEx',
                             placeholder_default: 'E.g.: "sAMAccountName"',
                             help_text: 'admin.ldap.uernameAttrDesc',
-                            help_text_default: 'The attribute in the AD/LDAP server that will be used to populate the username field in Mattermost. This may be the same as the ID Attribute.',
+                            help_text_default: 'The attribute in the AD/LDAP server that will be used to populate the username field in Messenger. This may be the same as the ID Attribute.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -797,7 +797,7 @@ export default {
                             placeholder: 'admin.ldap.idAttrEx',
                             placeholder_default: 'E.g.: "sAMAccountName"',
                             help_text: 'admin.ldap.idAttrDesc',
-                            help_text_default: 'The attribute in the AD/LDAP server that will be used as a unique identifier in Mattermost. It should be an AD/LDAP attribute with a value that does not change, such as username or uid. If a user\'s ID Attribute changes, it will create a new Mattermost account unassociated with their old one. This is the value used to log in to Mattermost in the "AD/LDAP Username" field on the sign in page. Normally this attribute is the same as the "Username Attribute" field above. If your team typically uses domain\\username to sign in to other services with AD/LDAP, you may choose to put domain\\username in this field to maintain consistency between sites.',
+                            help_text_default: 'The attribute in the AD/LDAP server that will be used as a unique identifier in Messenger. It should be an AD/LDAP attribute with a value that does not change, such as username or uid. If a user\'s ID Attribute changes, it will create a new Messenger account unassociated with their old one. This is the value used to log in to Messenger in the "AD/LDAP Username" field on the sign in page. Normally this attribute is the same as the "Username Attribute" field above. If your team typically uses domain\\username to sign in to other services with AD/LDAP, you may choose to put domain\\username in this field to maintain consistency between sites.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -823,7 +823,7 @@ export default {
                             label: 'admin.ldap.syncIntervalTitle',
                             label_default: 'Synchronization Interval (minutes):',
                             help_text: 'admin.ldap.syncIntervalHelpText',
-                            help_text_default: 'AD/LDAP Synchronization updates Mattermost user information to reflect updates on the AD/LDAP server. For example, when a user\'s name changes on the AD/LDAP server, the change updates in Mattermost when synchronization is performed. Accounts removed from or disabled in the AD/LDAP server have their Mattermost accounts set to "Inactive" and have their account sessions revoked. Mattermost performs synchronization on the interval entered. For example, if 60 is entered, Mattermost synchronizes every 60 minutes.',
+                            help_text_default: 'AD/LDAP Synchronization updates Messenger user information to reflect updates on the AD/LDAP server. For example, when a user\'s name changes on the AD/LDAP server, the change updates in Messenger when synchronization is performed. Accounts removed from or disabled in the AD/LDAP server have their Messenger accounts set to "Inactive" and have their account sessions revoked. Messenger performs synchronization on the interval entered. For example, if 60 is entered, Messenger synchronizes every 60 minutes.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -837,7 +837,7 @@ export default {
                             placeholder: 'admin.ldap.maxPageSizeEx',
                             placeholder_default: 'E.g.: "2000"',
                             help_text: 'admin.ldap.maxPageSizeHelpText',
-                            help_text_default: 'The maximum number of users the Mattermost server will request from the AD/LDAP server at one time. 0 is unlimited.',
+                            help_text_default: 'The maximum number of users the Messenger server will request from the AD/LDAP server at one time. 0 is unlimited.',
                             isDisabled: needsUtils.and(
                                 needsUtils.stateValueEqual('Enable', false),
                                 needsUtils.stateValueEqual('EnableSync', false),
@@ -864,7 +864,7 @@ export default {
                             label: 'admin.ldap.ldap_test_button',
                             label_default: 'AD/LDAP Test',
                             help_text: 'admin.ldap.testHelpText',
-                            help_text_default: 'Tests if the Mattermost server can connect to the AD/LDAP server specified. See log file for more detailed error messages.',
+                            help_text_default: 'Tests if the Messenger server can connect to the AD/LDAP server specified. See log file for more detailed error messages.',
                             error_message: 'admin.ldap.testFailure',
                             error_message_default: 'AD/LDAP Test Failure: {error}',
                             success_message: 'admin.ldap.testSuccess',
@@ -932,7 +932,7 @@ export default {
                         {
                             type: Constants.SettingsTypes.TYPE_BANNER,
                             label: 'admin.mfa.bannerDesc',
-                            label_default: '<a href=\'https://docs.mattermost.com/deployment/auth.html\' target=\'_blank\'>Multi-factor authentication</a> is available for accounts with AD/LDAP or email login. If other login methods are used, MFA should be configured with the authentication provider.',
+                            label_default: '<a href=\'https://docs.Messenger.com/deployment/auth.html\' target=\'_blank\'>Multi-factor authentication</a> is available for accounts with AD/LDAP or email login. If other login methods are used, MFA should be configured with the authentication provider.',
                             label_html: true,
                             banner_type: 'info',
                         },
@@ -951,7 +951,7 @@ export default {
                             label_default: 'Enforce Multi-factor Authentication:',
                             help_text: 'admin.service.enforceMfaDesc',
                             help_text_html: true,
-                            help_text_default: 'When true, <a href=\'https://docs.mattermost.com/deployment/auth.html\' target=\'_blank\'>multi-factor authentication</a> is required for login. New users will be required to configure MFA on signup. Logged in users without MFA configured are redirected to the MFA setup page until configuration is complete.<br/><br/>If your system has users with login methods other than AD/LDAP and email, MFA must be enforced with the authentication provider outside of Mattermost.',
+                            help_text_default: 'When true, <a href=\'https://docs.Messenger.com/deployment/auth.html\' target=\'_blank\'>multi-factor authentication</a> is required for login. New users will be required to configure MFA on signup. Logged in users without MFA configured are redirected to the MFA setup page until configuration is complete.<br/><br/>If your system has users with login methods other than AD/LDAP and email, MFA must be enforced with the authentication provider outside of Messenger.',
                             isDisabled: needsUtils.stateValueEqual('EnableMultifactorAuthentication', false),
                         },
                     ],

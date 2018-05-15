@@ -124,28 +124,28 @@ export default class PushSettings extends AdminSettings {
             sendHelpText = (
                 <FormattedHTMLMessage
                     id='admin.email.pushOffHelp'
-                    defaultMessage='Please see <a href="https://about.mattermost.com/default-mobile-push-notifications/" target="_blank">documentation on push notifications</a> to learn more about setup options.'
+                    defaultMessage='Please see <a href="https://about.Messenger.com/default-mobile-push-notifications/" target="_blank">documentation on push notifications</a> to learn more about setup options.'
                 />
             );
         } else if (this.state.pushNotificationServerType === PUSH_NOTIFICATIONS_MHPNS) {
             pushServerHelpText = (
                 <FormattedHTMLMessage
                     id='admin.email.mhpnsHelp'
-                    defaultMessage='Download <a href="https://about.mattermost.com/mattermost-ios-app/" target="_blank">Mattermost iOS app</a> from iTunes. Download <a href="https://about.mattermost.com/mattermost-android-app/" target="_blank">Mattermost Android app</a> from Google Play. Learn more about the <a href="https://about.mattermost.com/default-hpns/" target="_blank">Mattermost Hosted Push Notification Service</a>.'
+                    defaultMessage='Download <a href="https://about.Messenger.com/Messenger-ios-app/" target="_blank">Messenger iOS app</a> from iTunes. Download <a href="https://about.Messenger.com/Messenger-android-app/" target="_blank">Messenger Android app</a> from Google Play. Learn more about the <a href="https://about.Messenger.com/default-hpns/" target="_blank">Messenger Hosted Push Notification Service</a>.'
                 />
             );
         } else if (this.state.pushNotificationServerType === PUSH_NOTIFICATIONS_MTPNS) {
             pushServerHelpText = (
                 <FormattedHTMLMessage
                     id='admin.email.mtpnsHelp'
-                    defaultMessage='Download <a href="https://about.mattermost.com/mattermost-ios-app/" target="_blank">Mattermost iOS app</a> from iTunes. Download <a href="https://about.mattermost.com/mattermost-android-app/" target="_blank">Mattermost Android app</a> from Google Play. Learn more about the <a href="https://about.mattermost.com/default-tpns/" target="_blank">Mattermost Test Push Notification Service</a>.'
+                    defaultMessage='Download <a href="https://about.Messenger.com/Messenger-ios-app/" target="_blank">Messenger iOS app</a> from iTunes. Download <a href="https://about.Messenger.com/Messenger-android-app/" target="_blank">Messenger Android app</a> from Google Play. Learn more about the <a href="https://about.Messenger.com/default-tpns/" target="_blank">Messenger Test Push Notification Service</a>.'
                 />
             );
         } else {
             pushServerHelpText = (
                 <FormattedHTMLMessage
                     id='admin.email.easHelp'
-                    defaultMessage='Learn more about compiling and deploying your own mobile apps from an <a href="https://about.mattermost.com/default-enterprise-app-store" target="_blank">Enterprise App Store</a>.'
+                    defaultMessage='Learn more about compiling and deploying your own mobile apps from an <a href="https://about.Messenger.com/default-enterprise-app-store" target="_blank">Enterprise App Store</a>.'
                 />
             );
         }
@@ -164,7 +164,7 @@ export default class PushSettings extends AdminSettings {
                         />
                         <FormattedHTMLMessage
                             id='admin.email.agreeHPNS'
-                            defaultMessage=' I understand and accept the Mattermost Hosted Push Notification Service <a href="https://about.mattermost.com/hpns-terms/" target="_blank">Terms of Service</a> and <a href="https://about.mattermost.com/hpns-privacy/" target="_blank">Privacy Policy</a>.'
+                            defaultMessage=' I understand and accept the Messenger Hosted Push Notification Service <a href="https://about.Messenger.com/hpns-terms/" target="_blank">Terms of Service</a> and <a href="https://about.Messenger.com/hpns-privacy/" target="_blank">Privacy Policy</a>.'
                         />
                     </div>
                 </div>
@@ -202,7 +202,7 @@ export default class PushSettings extends AdminSettings {
                             defaultMessage='Push Notification Server:'
                         />
                     }
-                    placeholder={Utils.localizeMessage('admin.email.pushServerEx', 'E.g.: "http://push-test.mattermost.com"')}
+                    placeholder={Utils.localizeMessage('admin.email.pushServerEx', 'E.g.: "http://push-test.Messenger.com"')}
                     helpText={pushServerHelpText}
                     value={this.state.pushNotificationServer}
                     onChange={this.handleChange}

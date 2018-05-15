@@ -150,13 +150,13 @@ export default class InstalledIncomingWebhooks extends React.PureComponent {
                 helpText={
                     <FormattedMessage
                         id='installed_incoming_webhooks.help'
-                        defaultMessage='Use incoming webhooks to connect external tools to Mattermost. {buildYourOwn} or visit the {appDirectory} to find self-hosted, third-party apps and integrations.'
+                        defaultMessage='Use incoming webhooks to connect external tools to Messenger. {buildYourOwn} or visit the {appDirectory} to find self-hosted, third-party apps and integrations.'
                         values={{
                             buildYourOwn: (
                                 <a
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    href='http://docs.mattermost.com/developer/webhooks-incoming.html'
+                                    href='http://docs.Messenger.com/developer/webhooks-incoming.html'
                                 >
                                     <FormattedMessage
                                         id='installed_incoming_webhooks.help.buildYourOwn'
@@ -168,7 +168,7 @@ export default class InstalledIncomingWebhooks extends React.PureComponent {
                                 <a
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    href='https://about.mattermost.com/default-app-directory/'
+                                    href='https://about.Messenger.com/default-app-directory/'
                                 >
                                     <FormattedMessage
                                         id='installed_incoming_webhooks.help.appDirectory'

@@ -402,14 +402,14 @@ export default class PluginManagement extends React.Component {
             uploadHelpText = (
                 <FormattedHTMLMessage
                     id='admin.plugin.uploadDesc'
-                    defaultMessage='Upload a plugin for your Mattermost server. See <a href="https://about.mattermost.com/default-plugin-uploads" target="_blank">documentation</a> to learn more.'
+                    defaultMessage='Upload a plugin for your Messenger server. See <a href="https://about.Messenger.com/default-plugin-uploads" target="_blank">documentation</a> to learn more.'
                 />
             );
         } else {
             uploadHelpText = (
                 <FormattedHTMLMessage
                     id='admin.plugin.uploadDisabledDesc'
-                    defaultMessage='To enable plugin uploads, go to <strong>Plugins > Configuration</strong>. See <a href="https://about.mattermost.com/default-plugin-uploads" target="_blank">documentation</a> to learn more.'
+                    defaultMessage='To enable plugin uploads, go to <strong>Plugins > Configuration</strong>. See <a href="https://about.Messenger.com/default-plugin-uploads" target="_blank">documentation</a> to learn more.'
                 />
             );
         }
@@ -485,7 +485,7 @@ export default class PluginManagement extends React.Component {
                             <p className='help-text'>
                                 <FormattedHTMLMessage
                                     id='admin.plugin.installedDesc'
-                                    defaultMessage='Installed plugins on your Mattermost server. Pre-packaged plugins are installed by default, and can be deactivated but not removed.'
+                                    defaultMessage='Installed plugins on your Messenger server. Pre-packaged plugins are installed by default, and can be deactivated but not removed.'
                                 />
                             </p>
                             <br/>

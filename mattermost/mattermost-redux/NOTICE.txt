@@ -1,16 +1,16 @@
-Mattermost Redux
-© 2016-present Mattermost, Inc.  All Rights Reserved.  See LICENSE.txt for license information.
+Tink Redux
+© 2016-present Tink, Inc.  All Rights Reserved.  See LICENSE.txt for license information.
 
 NOTICES:
 --------
 
-This document includes a list of open source components used in Mattermost Redux, including those that have been modified.
+This document includes a list of open source components used in Tink Redux, including those that have been modified.
 
 --------
 
 ## harmony-reflect
 
-[Note: the software referenced below is made available under two licenses.  Mattermost, Inc. has elected to license the software pursuant to the Apache License, Version 2.0.]
+[Note: the software referenced below is made available under two licenses.  Tink, Inc. has elected to license the software pursuant to the Apache License, Version 2.0.]
 
 This product contains 'harmony-reflect', a shim for ECMAScript 6 Reflect and Proxy objects.
 

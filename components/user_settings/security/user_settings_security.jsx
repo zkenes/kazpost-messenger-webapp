@@ -40,10 +40,10 @@ export default class SecurityTab extends React.Component {
          */
         canUseAccessTokens: PropTypes.bool,
 
-        // Whether or not this instance of Mattermost is licensed.
+        // Whether or not this instance of Messenger is licensed.
         isLicensed: PropTypes.bool,
 
-        // Whether or not this instance of Mattermost is licensed to use multi-factor authentication.
+        // Whether or not this instance of Messenger is licensed to use multi-factor authentication.
         mfaLicensed: PropTypes.bool,
 
         // Whether or not OAuth applications are enabled.

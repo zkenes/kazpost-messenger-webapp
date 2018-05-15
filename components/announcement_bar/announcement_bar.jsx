@@ -15,7 +15,7 @@ import {displayExpiryDate, isLicenseExpired, isLicenseExpiring, isLicensePastGra
 import * as TextFormatting from 'utils/text_formatting.jsx';
 import * as Utils from 'utils/utils.jsx';
 
-const RENEWAL_LINK = 'https://licensing.mattermost.com/renew';
+const RENEWAL_LINK = 'https://licensing.Messenger.com/renew';
 
 const BAR_DEVELOPER_TYPE = 'developer';
 const BAR_CRITICAL_TYPE = 'critical';
@@ -273,7 +273,7 @@ export default class AnnouncementBar extends React.PureComponent {
             message = (
                 <FormattedHTMLMessage
                     id={ErrorBarTypes.WEBSOCKET_PORT_ERROR}
-                    defaultMessage='Please check connection, Mattermost unreachable. If issue persists, ask administrator to <a href="https://about.mattermost.com/default-websocket-port-help" target="_blank">check WebSocket port</a>.'
+                    defaultMessage='Please check connection, Messenger unreachable. If issue persists, ask administrator to <a href="https://about.Messenger.com/default-websocket-port-help" target="_blank">check WebSocket port</a>.'
                 />
             );
         } else if (message === ErrorBarTypes.SITE_URL) {
@@ -281,7 +281,7 @@ export default class AnnouncementBar extends React.PureComponent {
             let defaultMessage;
             if (this.props.enableSignUpWithGitLab) {
                 id = 'error_bar.site_url_gitlab';
-                defaultMessage = 'Please configure your {docsLink} in the System Console or in gitlab.rb if you\'re using GitLab Mattermost.';
+                defaultMessage = 'Please configure your {docsLink} in the System Console or in gitlab.rb if you\'re using GitLab Messenger.';
             } else {
                 id = 'error_bar.site_url';
                 defaultMessage = 'Please configure your {docsLink} in the System Console.';
@@ -294,7 +294,7 @@ export default class AnnouncementBar extends React.PureComponent {
                     values={{
                         docsLink: (
                             <a
-                                href='https://docs.mattermost.com/administration/config-settings.html#site-url'
+                                href='https://docs.Messenger.com/administration/config-settings.html#site-url'
                                 rel='noopener noreferrer'
                                 target='_blank'
                             >

@@ -3,7 +3,7 @@
 exports[`components/error_page/ErrorMessage should match snapshot, local_storage type 1`] = `
 <div>
   <FormattedMessage
-    defaultMessage="Mattermost was unable to load because a setting in your browser prevents the use of its local storage features. To allow Mattermost to load, try the following actions:"
+    defaultMessage="Messenger was unable to load because a setting in your browser prevents the use of its local storage features. To allow Messenger to load, try the following actions:"
     id="error.local_storage.message"
     values={Object {}}
   />
@@ -71,7 +71,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
           "link": <ErrorLink
             defaultMessage="Google Apps"
             messageId="error.oauth_missing_code.google.link"
-            url="https://docs.mattermost.com/deployment/sso-google.html"
+            url="https://docs.Messenger.com/deployment/sso-google.html"
           />,
         }
       }
@@ -79,14 +79,14 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
   </p>
   <p>
     <FormattedMessage
-      defaultMessage="For {link} make sure the administrator of your Microsoft organization has enabled the Mattermost app."
+      defaultMessage="For {link} make sure the administrator of your Microsoft organization has enabled the Messenger app."
       id="error.oauth_missing_code.office365"
       values={
         Object {
           "link": <ErrorLink
             defaultMessage="Office 365"
             messageId="error.oauth_missing_code.office365.link"
-            url="https://docs.mattermost.com/deployment/sso-office.html"
+            url="https://docs.Messenger.com/deployment/sso-office.html"
           />,
         }
       }
@@ -101,7 +101,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
           "link": <ErrorLink
             defaultMessage="GitLab"
             messageId="error.oauth_missing_code.gitlab.link"
-            url="https://docs.mattermost.com/deployment/sso-gitlab.html"
+            url="https://docs.Messenger.com/deployment/sso-gitlab.html"
           />,
         }
       }
@@ -116,7 +116,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
           "link": <ErrorLink
             defaultMessage="Troubleshooting forum"
             messageId="error.oauth_missing_code.forum.link"
-            url="https://forum.mattermost.org/c/trouble-shoot"
+            url="https://forum.Messenger.org/c/trouble-shoot"
           />,
         }
       }

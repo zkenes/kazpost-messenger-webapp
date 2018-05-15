@@ -63,7 +63,7 @@ export default class MetricsSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.metrics.enableDescription'
-                            defaultMessage='When true, Mattermost will enable performance monitoring collection and profiling. Please see <a href="http://docs.mattermost.com/deployment/metrics.html" target="_blank">documentation</a> to learn more about configuring performance monitoring for Mattermost.'
+                            defaultMessage='When true, Messenger will enable performance monitoring collection and profiling. Please see <a href="http://docs.Messenger.com/deployment/metrics.html" target="_blank">documentation</a> to learn more about configuring performance monitoring for Messenger.'
                         />
                     }
                     value={this.state.enable}

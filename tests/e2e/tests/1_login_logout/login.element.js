@@ -11,7 +11,7 @@ module.exports = {
 
         loginPage.navigate().
             navigateToPage().
-            assert.title('Mattermost').
+            assert.title('Messenger').
             assert.visible('@loginInput').
             assert.visible('@passwordInput').
             assert.visible('@signinButton');

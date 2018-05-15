@@ -16,7 +16,7 @@ export default function ErrorTitle({type, title}) {
             errorTitle = (
                 <FormattedMessage
                     id='error.local_storage.title'
-                    defaultMessage='Cannot Load Mattermost'
+                    defaultMessage='Cannot Load Messenger'
                 />
             );
             break;
@@ -32,7 +32,7 @@ export default function ErrorTitle({type, title}) {
             errorTitle = (
                 <FormattedMessage
                     id='error.oauth_missing_code.title'
-                    defaultMessage='Mattermost needs your help'
+                    defaultMessage='Messenger needs your help'
                 />
             );
             break;

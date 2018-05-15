@@ -189,7 +189,7 @@ export default class MessageExportSettings extends AdminSettings {
                     <div className='banner__content'>
                         <FormattedHTMLMessage
                             id='admin.complianceExport.description'
-                            defaultMessage='This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Mattermost CSV format is scheduled for a future release, and will replace the existing <a href=\"/admin_console/general/compliance\">Compliance</a> feature.'
+                            defaultMessage='This feature supports compliance exports to the Actiance XML and GlobalRelay EML formats, and is currently in beta. Support for the Messenger CSV format is scheduled for a future release, and will replace the existing <a href=\"/admin_console/general/compliance\">Compliance</a> feature.'
                         />
                     </div>
                 </div>

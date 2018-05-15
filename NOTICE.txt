@@ -1,5 +1,5 @@
 Messenger Web App
-© 2017-present Mattermost, Inc.  All Rights Reserved.  See LICENSE.txt for license information.
+© 2017-present Messenger, Inc.  All Rights Reserved.  See LICENSE.txt for license information.
 
 NOTICES:
 --------
@@ -754,16 +754,16 @@ THE SOFTWARE.
 
 ---
 
-## mattermost-redux
+## Messenger-redux
 
-This product contains a modified portion of `mattermost-redux`.
+This product contains a modified portion of `Messenger-redux`.
 
 * HOMEPAGE:
-  * https://github.com/mattermost/mattermost-redux
+  * https://github.com/Messenger/Messenger-redux
 
 * LICENSE:
 
-Copyright 2016-present Mattermost
+Copyright 2016-present Messenger
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

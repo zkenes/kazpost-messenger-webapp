@@ -14,7 +14,7 @@ export default class NotLoggedIn extends React.PureComponent {
         children: PropTypes.object,
 
         /*
-         * Mattermost configuration
+         * Messenger configuration
          */
         config: PropTypes.object,
     };
@@ -99,11 +99,11 @@ export default class NotLoggedIn extends React.PureComponent {
                 <div className='row footer'>
                     <div className='footer-pane col-xs-12'>
                         <div className='col-xs-12'>
-                            <span className='pull-right footer-site-name'>{'Mattermost'}</span>
+                            <span className='pull-right footer-site-name'>{'Messenger'}</span>
                         </div>
                         <div className='col-xs-12'>
                             <span className='pull-right footer-link copyright'>
-                                {`© 2015-${new Date().getFullYear()} Mattermost, Inc.`}
+                                {`© 2015-${new Date().getFullYear()} Messenger, Inc.`}
                             </span>
                             <span className='pull-right'>
                                 {content}
