@@ -243,7 +243,7 @@ export default class UsersAndTeamsSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.team.restrictDescription'
-                            defaultMessage='Teams and user accounts can only be created from a specific domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.tink.com, tink.org").'
+                            defaultMessage='Teams and user accounts can only be created from a specific domain (e.g. "tink.org") or list of comma-separated domains (e.g. "corp.tink.com, tink.org").'
                         />
                     }
                     value={this.state.restrictCreationToDomains}

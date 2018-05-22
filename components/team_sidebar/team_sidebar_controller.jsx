@@ -182,13 +182,14 @@ export default class TeamSidebar extends React.Component {
                 </SystemPermissionGate>
             );
         }
+        return null;
 
-        return (
-            <div className={classNames('team-sidebar', {'move--right': this.props.isOpen})}>
-                <div className='team-wrapper'>
-                    {teams}
-                </div>
-            </div>
-        );
+        // return (
+        //     <div className={classNames('team-sidebar', {'move--right': this.props.isOpen})}>
+        //         <div className='team-wrapper'>
+        //             {teams}
+        //         </div>
+        //     </div>
+        // );
     }
 }
