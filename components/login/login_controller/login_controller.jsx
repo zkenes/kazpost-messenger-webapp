@@ -656,7 +656,7 @@ export default class LoginController extends React.Component {
             <div>
                 <AnnouncementBar/>
                 <div className='col-sm-12'>
-                    <div className={'signup-team__container ' + customClass}>
+                    <div className={'signup-team__container branded'}>
                         <div className='signup__markdown'>
                             {customContent}
                         </div>
@@ -668,7 +668,7 @@ export default class LoginController extends React.Component {
                             <SiteNameAndDescription
                                 customDescriptionText={customDescriptionText}
                                 isLicensed={isLicensed}
-                                siteName={'Eurasian Bank'}
+                                siteName={this.props.siteName}
                             />
                             {content}
                         </div>
