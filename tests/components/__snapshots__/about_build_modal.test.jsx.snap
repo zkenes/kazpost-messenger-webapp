@@ -53,7 +53,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
       <div
         className="about-modal__logo"
       >
-        <MattermostLogo />
+        <TinkLogo />
       </div>
       <div>
         <h3
@@ -262,7 +262,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
       <div
         className="about-modal__logo"
       >
-        <MattermostLogo />
+        <TinkLogo />
       </div>
       <div>
         <h3
@@ -459,7 +459,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
       <div
         className="about-modal__logo"
       >
-        <MattermostLogo />
+        <TinkLogo />
       </div>
       <div>
         <h3
@@ -668,7 +668,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
       <div
         className="about-modal__logo"
       >
-        <MattermostLogo />
+        <TinkLogo />
       </div>
       <div>
         <h3

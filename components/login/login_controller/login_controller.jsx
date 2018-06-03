@@ -629,7 +629,8 @@ export default class LoginController extends React.Component {
         const {
             customDescriptionText,
             isLicensed,
-            siteName,
+
+            /* siteName, */
         } = this.props;
 
         let content;
@@ -667,7 +668,7 @@ export default class LoginController extends React.Component {
                             <SiteNameAndDescription
                                 customDescriptionText={customDescriptionText}
                                 isLicensed={isLicensed}
-                                siteName={siteName}
+                                siteName={'Eurasian Bank'}
                             />
                             {content}
                         </div>

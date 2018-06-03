@@ -6,7 +6,7 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
-import MattermostLogo from 'components/svg/mattermost_logo';
+import TinkLogo from 'components/svg/mattermost_logo';
 
 export default class AboutBuildModal extends React.PureComponent {
     static defaultProps = {
@@ -171,7 +171,7 @@ export default class AboutBuildModal extends React.PureComponent {
                 <Modal.Body>
                     <div className='about-modal__content'>
                         <div className='about-modal__logo'>
-                            <MattermostLogo/>
+                            <TinkLogo/>
                         </div>
                         <div>
                             <h3 className='about-modal__title'>{'Tink'} {title}</h3>
